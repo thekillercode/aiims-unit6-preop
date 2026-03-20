@@ -1051,11 +1051,22 @@ document.getElementById('btn5').addEventListener('click',function(){
   var ref='AIIMS-'+new Date().getFullYear()+'-'+Math.floor(Math.random()*90000+10000);
   var payload=collectPayload(ref);
   btn.disabled=true; btn.innerHTML='<span class="spinner"></span> Submitting...';
-  fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(function(r){return r.json();})
-  .then(function(){document.getElementById('ref-num').textContent='Reference: '+ref;showPg(6);})
-  .catch(function(err){alert('Submission failed. Please check your connection.\n\nError: '+err.message);})
-  .finally(function(){btn.disabled=false;btn.innerHTML='Submit checklist';});
+fetch(APPS_SCRIPT_URL, {
+  method: 'POST',
+  mode: 'no-cors',
+  body: JSON.stringify(payload)
+})
+.then(function() {
+  document.getElementById('ref-num').textContent = 'Reference: ' + ref;
+  showPg(6);
+})
+.catch(function(err) {
+  alert('Submission failed.\n\nError: ' + err.message);
+})
+.finally(function() {
+  btn.disabled = false;
+  btn.innerHTML = 'Submit checklist';
+});
 });
 document.getElementById('btnReset').addEventListener('click',function(){
   curProc=null;INV_STATE={};
