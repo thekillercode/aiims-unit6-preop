@@ -77,10 +77,12 @@ textarea.fi{resize:none;min-height:56px}
 .legend{display:flex;gap:10px;font-size:10.5px;color:var(--slate-500);margin-bottom:12px;flex-wrap:wrap}
 .legend span{display:flex;align-items:center;gap:5px;font-weight:500}
 .ldot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+/* Standard/Blood rows */
 .inv-wrap{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:4px}
-.inv-col-hdr{display:grid;grid-template-columns:26px 18px 1fr 130px 100px;padding:7px 10px;font-size:9.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border);background:var(--slate-50)}
-.inv-row{display:grid;grid-template-columns:26px 18px 1fr 130px 100px;align-items:center;padding:8px 10px;border-bottom:1px solid #f8fafc}
-.inv-row:last-child{border-bottom:none}
+.inv-col-hdr{display:grid;padding:7px 10px;font-size:9.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border);background:var(--slate-50)}
+.inv-item-wrap{border-bottom:1px solid #f8fafc}
+.inv-item-wrap:last-child{border-bottom:none}
+.inv-row{display:grid;align-items:center;padding:8px 10px}
 .inv-row.req-row{background:#f0fdf4;border-left:3px solid var(--teal)}
 .inv-row.age-row{background:#fffbeb;border-left:3px solid var(--amber)}
 .inv-row.cond-row{background:#f5f3ff;border-left:3px solid var(--purple)}
@@ -95,6 +97,47 @@ textarea.fi{resize:none;min-height:56px}
 .inv-val::placeholder{color:var(--slate-300);font-weight:400}
 .inv-date{border:none;border-bottom:1px solid var(--slate-200);font-size:11px;padding:4px 2px;background:transparent;outline:none;font-family:inherit;color:var(--slate-500);width:100%}
 .inv-date:focus{border-bottom:2px solid var(--teal)}
+/* Mini image buttons for std/blood rows */
+.inv-img-mini{display:flex;gap:3px;align-items:center;justify-content:flex-end}
+.btn-mi{background:var(--slate-50);border:1px solid var(--slate-200);border-radius:4px;padding:3px 5px;font-size:13px;cursor:pointer;line-height:1;transition:all .15s;font-family:inherit}
+.btn-mi:hover{border-color:var(--teal);background:#f0fdfa}
+.inv-img-strip{padding:6px 10px 8px 54px;background:var(--slate-50);border-top:1px dashed var(--slate-200);display:none}
+/* Radiological expanded items */
+.radio-item{border-bottom:1px solid #eef2f7}
+.radio-item:last-child{border-bottom:none}
+.radio-item.req-row{background:#f0fdf4;border-left:3px solid var(--teal)}
+.radio-item.age-row{background:#fffbeb;border-left:3px solid var(--amber)}
+.radio-item.cond-row{background:#f5f3ff;border-left:3px solid var(--purple)}
+.radio-item.na-row{opacity:.28;border-left:3px solid transparent}
+.radio-hdr{display:grid;grid-template-columns:26px 18px 1fr 114px;align-items:center;padding:10px 10px 6px}
+.radio-body{padding:0 12px 14px 54px}
+.radio-ta{width:100%;border:1px solid var(--slate-200);border-radius:6px;padding:10px 12px;font-size:12.5px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--slate-800);resize:vertical;min-height:90px;line-height:1.7;outline:none;background:#fff;font-weight:400;transition:border-color .2s,box-shadow .2s}
+.radio-ta:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,.07)}
+.radio-ta::placeholder{color:var(--slate-300);font-size:12px}
+/* Per-investigation image upload (radio) */
+.inv-img-zone{margin-top:8px}
+.inv-img-btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn-iup,.btn-icap{background:#fff;border:1px solid var(--slate-200);border-radius:6px;padding:5px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--slate-600);transition:all .15s;display:inline-flex;align-items:center;gap:4px}
+.btn-iup:hover{border-color:var(--teal);color:var(--teal);background:#f0fdfa}
+.btn-icap:hover{border-color:var(--navy);color:var(--navy);background:var(--blue-lt)}
+/* Image previews */
+.img-preview-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.img-thumb-item{position:relative;display:inline-flex;flex-direction:column;gap:2px}
+.img-thumb-item img{max-width:180px;max-height:130px;border-radius:7px;border:1px solid var(--border);object-fit:cover;display:block}
+.img-thumb-label{font-size:9px;color:var(--slate-400);font-weight:500;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.img-thumb-del{position:absolute;top:-5px;right:-5px;background:var(--red);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:800;line-height:1;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.img-thumb-del:hover{background:#991b1b}
+.pdf-thumb-item{display:inline-flex;align-items:center;gap:7px;background:var(--slate-50);border:1px solid var(--border);border-radius:6px;padding:5px 9px;font-size:11px;color:var(--slate-600);font-weight:500;max-width:220px;position:relative}
+.pdf-thumb-del{background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0;font-weight:800;flex-shrink:0;margin-left:4px}
+/* Not-required collapsible */
+.nr-toggle{width:100%;background:var(--slate-50);border:none;border-top:1px solid var(--border);padding:9px 14px;font-size:11px;font-weight:700;color:var(--slate-400);cursor:pointer;text-align:left;font-family:inherit;display:flex;align-items:center;gap:6px;transition:all .15s}
+.nr-toggle:hover{background:var(--slate-100);color:var(--slate-600)}
+.nr-arrow{font-size:9px;display:inline-block;transition:transform .2s;flex-shrink:0}
+.nr-toggle.open .nr-arrow{transform:rotate(90deg)}
+.nr-count{font-weight:500;color:var(--slate-300)}
+.nr-body{display:none;background:var(--slate-50);border-top:1px solid var(--slate-100)}
+.inv-group-hdr{background:var(--slate-100);padding:5px 10px;font-size:9.5px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border)}
+/* Clearances, drugs, etc */
 .sug-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:#14532d;line-height:1.8;display:none;font-weight:500}
 .clr-wrap{border:1px solid var(--border);border-radius:8px;overflow:hidden}
 .clr-hdr{display:grid;grid-template-columns:24px 1fr 120px 1fr;padding:7px 10px;font-size:9.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border);background:var(--slate-50);gap:8px}
@@ -133,7 +176,7 @@ textarea.fi{resize:none;min-height:56px}
 .ref-num{font-family:'Courier New',monospace;font-size:13px;background:var(--slate-50);color:var(--navy);padding:8px 20px;border-radius:6px;display:inline-block;margin-bottom:22px;border:1px solid var(--border);font-weight:700}
 .spinner{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* ── CUSTOM DROPDOWN SHARED ───────────────────────────────── */
+/* Dropdowns */
 .dd-wrap{position:relative}
 .dd-trigger{border:none;border-bottom:2px solid var(--slate-200);padding:7px 28px 7px 2px;font-size:13px;color:var(--slate-800);background:transparent;outline:none;font-family:inherit;width:100%;text-align:left;cursor:pointer;font-weight:500;transition:border-color .2s;position:relative}
 .dd-trigger:focus,.dd-trigger.open{border-bottom-color:var(--teal)}
@@ -150,14 +193,13 @@ textarea.fi{resize:none;min-height:56px}
 .dd-opt:not(.selected)::before{content:'';display:inline-block;width:11px}
 .dd-opt.add-new{color:var(--navy);font-weight:600;border-top:1px solid var(--slate-100);padding-top:9px}
 .dd-opt.add-new::before{content:'+';font-size:14px;font-weight:700;color:var(--teal)}
-/* ── TAGS (comorbidities) ─────────────────────────────────── */
+.dd-opt-del{background:none;border:none;color:var(--slate-300);font-size:13px;cursor:pointer;padding:0 2px;margin-left:auto;line-height:1;flex-shrink:0;transition:color .15s}
+.dd-opt-del:hover{color:var(--red)}
 .tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;min-height:0}
-.tag-pill{display:inline-flex;align-items:center;gap:5px;background:var(--teal-lt);color:#065f46;border-radius:20px;padding:3px 10px 3px 10px;font-size:11.5px;font-weight:600}
+.tag-pill{display:inline-flex;align-items:center;gap:5px;background:var(--teal-lt);color:#065f46;border-radius:20px;padding:3px 10px;font-size:11.5px;font-weight:600}
 .tag-pill button{background:none;border:none;cursor:pointer;color:#0f766e;font-size:13px;line-height:1;padding:0;margin-left:2px;font-weight:700}
 .tag-pill button:hover{color:var(--red)}
-/* ── CONSULTANT DISPLAY ──────────────────────────────────── */
 .consultant-val{font-size:12px;color:var(--slate-500);margin-top:3px;font-weight:400}
-/* ── ADD-NEW INLINE FORM ─────────────────────────────────── */
 .add-new-form{background:var(--slate-50);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-top:8px;display:none;gap:10px;flex-direction:column}
 .add-new-form.visible{display:flex}
 .add-new-form input{border:none;border-bottom:1.5px solid var(--slate-200);padding:6px 2px;font-size:12.5px;font-family:inherit;background:transparent;outline:none;color:var(--slate-800);font-weight:500;width:100%}
@@ -166,10 +208,7 @@ textarea.fi{resize:none;min-height:56px}
 .add-new-btns{display:flex;gap:8px;justify-content:flex-end}
 .btn-add-confirm{background:var(--teal);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
 .btn-add-cancel{background:transparent;color:var(--slate-400);border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
-.dd-opt-del{background:none;border:none;color:var(--slate-300);font-size:13px;cursor:pointer;padding:0 2px;margin-left:auto;line-height:1;flex-shrink:0;font-family:inherit;transition:color .15s}
-.dd-opt-del:hover{color:var(--red)}
-.inv-group-hdr{grid-column:1/-1;background:var(--slate-100);padding:5px 10px;font-size:9.5px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border)}
-/* ── UPLOAD ZONE ─────────────────────────────────────── */
+/* Upload zone */
 .upload-zone{border:2px dashed var(--slate-300);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--slate-50);position:relative}
 .upload-zone:hover,.upload-zone.drag-over{border-color:var(--teal);background:#f0fdfa}
 .upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
@@ -183,26 +222,35 @@ textarea.fi{resize:none;min-height:56px}
 .upload-thumb .thumb-del{position:absolute;top:3px;right:3px;background:rgba(0,0,0,.55);border:none;border-radius:50%;width:18px;height:18px;color:#fff;font-size:11px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
 .upload-thumb .thumb-del:hover{background:var(--red)}
 .upload-count{font-size:11px;color:var(--teal);font-weight:600;margin-top:6px}
-@media print{.upload-zone{display:none!important}.upload-grid img{max-height:120px;border-radius:4px}}
+@media(max-width:520px){
+  .frow.two,.frow.three{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr}
+  .radio-hdr{grid-template-columns:26px 18px 1fr}
+  .radio-hdr .inv-date{display:none}
+  .clr-hdr,.clr-row{grid-template-columns:24px 1fr 90px}
+  .clr-hdr>:last-child,.clr-row>:last-child{display:none}
+}
 @media print{
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{background:#fff;padding:0;font-size:11px}
   .inner{max-width:100%;padding:0 16px}
-  .no-print,.nav,.prog-wrap,.btn-next,.btn-back,.btn-reset,.btn-print,.hdr-badge,.warn-panel{display:none!important}
+  .no-print,.nav,.prog-wrap,.btn-next,.btn-back,.btn-reset,.btn-print,.hdr-badge,.warn-panel,.inv-img-mini,.inv-img-btns,.inv-img-zone,.upload-zone,.nr-toggle{display:none!important}
+  .nr-body{display:none!important}
   .pg{display:block!important}
   .card{box-shadow:none;border:1px solid #ccc;break-inside:avoid;margin-bottom:8px;padding:12px 16px;border-radius:4px}
   .hdr{background:var(--navy)!important;-webkit-print-color-adjust:exact;border-radius:0;padding:14px 16px}
   .hdr-stripe{display:none}
-  .inv-row.req-row{background:#f0fdf4!important}
-  .inv-row.age-row{background:#fffbeb!important}
-  .inv-row.cond-row{background:#f5f3ff!important}
+  .inv-row.req-row,.radio-item.req-row{background:#f0fdf4!important}
+  .inv-row.age-row,.radio-item.age-row{background:#fffbeb!important}
+  .inv-row.cond-row,.radio-item.cond-row{background:#f5f3ff!important}
   .drug-box,.sug-box{display:block!important}
+  .inv-img-strip{display:none!important}
 }
 </style>
 </head>
 <body>
 <div class="inner">
-<script>var APPS_SCRIPT_URL="https://script.google.com/macros/s/AKfycbwaGOYUKa9mBLeFXrTGexAWF_dl_GEJsw8MjzXcvDvHlHSciW67COTZFz2YhV_4f4ZZ4g/exec";</script>
+<script>var APPS_SCRIPT_URL="https://script.google.com/macros/s/AKfycbxKxox-WwiX4E9v-upXuc0v8jPm5K1sWq6qsvRlU8vs0SaiOZGMUBwJJDMaoKi5sekZ/exec";</script>
 
 <!-- PAGE 1 -->
 <div id="pg1" class="pg active">
@@ -211,7 +259,7 @@ textarea.fi{resize:none;min-height:56px}
     <div class="hdr-eyebrow">AIIMS Delhi · Unit 6 · Dept. of General Surgery</div>
     <div class="hdr-title">Pre-operative Checklist</div>
     <div class="hdr-sub">Investigations · Clearances · Special Requirements · Pre-op clinic copy</div>
-    <div class="hdr-badge">v3.0 — AIIMS Delhi Unit 6</div>
+    <div class="hdr-badge">v3.1 — AIIMS Delhi Unit 6</div>
   </div>
   <div class="prog-wrap">
     <div class="prog-lbl">Step 1 of 5</div>
@@ -246,7 +294,6 @@ textarea.fi{resize:none;min-height:56px}
     </div>
     <div class="frow"><div class="fld"><label>Diagnosis <span class="req">*</span></label><input class="fi" id="f-diag" placeholder="Clinical diagnosis"><div class="field-err" id="err-f-diag">Required</div></div></div>
     <div class="frow"><div class="fld"><label>Planned operative procedure <span class="req">*</span></label><input class="fi" id="f-plan" placeholder="Planned operation"><div class="field-err" id="err-f-plan">Required</div></div></div>
-    <!-- CO-MORBIDITIES MULTI-SELECT -->
     <div class="frow"><div class="fld">
       <label>Co-morbidities</label>
       <div id="comorbid-tags" class="tags-wrap"></div>
@@ -257,7 +304,6 @@ textarea.fi{resize:none;min-height:56px}
           <div id="comorbid-opts"></div>
         </div>
       </div>
-      <!-- Add new comorbidity inline form -->
       <div class="add-new-form" id="comorbid-add-form">
         <input type="text" id="comorbid-new-val" placeholder="Enter co-morbidity (e.g. COPD)">
         <div class="add-new-btns">
@@ -267,8 +313,6 @@ textarea.fi{resize:none;min-height:56px}
       </div>
       <input type="hidden" id="f-comorbid">
     </div></div>
-
-    <!-- CONSULTANT SINGLE-SELECT -->
     <div class="frow"><div class="fld">
       <label>Consultant-in-charge <span class="req">*</span></label>
       <div class="dd-wrap" id="consultant-dd-wrap">
@@ -280,7 +324,6 @@ textarea.fi{resize:none;min-height:56px}
       </div>
       <div class="consultant-val" id="consultant-email-display"></div>
       <div class="field-err" id="err-f-email">Please select a consultant</div>
-      <!-- Add new consultant inline form -->
       <div class="add-new-form" id="consultant-add-form">
         <input type="text" id="consultant-new-name" placeholder="Consultant name (e.g. Dr. Sharma)">
         <input type="email" id="consultant-new-email" placeholder="Email (e.g. sharma@aiims.edu)">
@@ -294,7 +337,6 @@ textarea.fi{resize:none;min-height:56px}
     </div></div>
     <div id="age-alert" class="age-alert"><strong>⚠ Age &gt;50 detected</strong> — 2D Echocardiography and Pulmonary Function Tests are now mandatory regardless of procedure.</div>
   </div>
-
   <div class="card">
     <div class="sec-title">Clinical Photograph</div>
     <div class="upload-zone" id="clin-photo-zone">
@@ -306,7 +348,6 @@ textarea.fi{resize:none;min-height:56px}
     <div class="upload-grid" id="clin-photo-grid"></div>
     <div class="upload-count" id="clin-photo-count"></div>
   </div>
-
   <div class="card">
     <div class="sec-title">Select procedure <span class="req">*</span></div>
     <div class="proc-grid" id="procBtns">
@@ -327,7 +368,7 @@ textarea.fi{resize:none;min-height:56px}
   <div class="card no-print"><div class="nav"><div></div><button class="btn-next" id="btn1">Next →</button></div></div>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2 — RADIOLOGICAL INVESTIGATIONS (now first) -->
 <div id="pg2" class="pg">
   <div style="height:2px"></div>
   <div class="prog-wrap">
@@ -337,60 +378,23 @@ textarea.fi{resize:none;min-height:56px}
   </div>
   <div id="warn-panel-2" class="warn-panel"><div class="warn-cards" id="warn-cards-2"></div></div>
   <div class="card">
-    <div class="sec-title">A — Standard Investigations</div>
-    <div id="banner2" style="background:var(--teal-lt);border-radius:6px;padding:7px 12px;font-size:11.5px;color:#065f46;font-weight:600;margin-bottom:10px;display:none"></div>
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
-      <div class="legend" style="margin-bottom:0">
-        <span><span class="ldot" style="background:var(--teal)"></span>Mandatory</span>
-        <span><span class="ldot" style="background:var(--amber)"></span>Age &gt;50</span>
-        <span><span class="ldot" style="background:var(--purple)"></span>Conditional</span>
-        <span><span class="ldot" style="background:var(--slate-300)"></span>Not required</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-        <label style="font-size:10.5px;color:var(--slate-500);font-weight:600;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap">Sample date</label>
-        <input type="date" id="std-common-date" style="border:none;border-bottom:2px solid var(--slate-200);padding:5px 2px;font-size:12px;font-family:inherit;background:transparent;outline:none;color:var(--slate-700);font-weight:500;transition:border-color .2s" onfocus="this.style.borderBottomColor='var(--teal)'" onblur="this.style.borderBottomColor='var(--slate-200)'">
-      </div>
-    </div>
-    <div class="inv-wrap">
-      <div class="inv-col-hdr"><div></div><div></div><div style="padding-left:8px">Investigation</div><div style="grid-column:4/6">Value / Result</div></div>
-      <div id="std-body"></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="sec-title">B — Special Blood Investigations</div>
-    <div class="inv-wrap">
-      <div class="inv-col-hdr"><div></div><div></div><div style="padding-left:8px">Investigation</div><div>Value / Result</div><div>Date</div></div>
-      <div id="blood-body"></div>
-    </div>
-  </div>
-  <div class="card no-print"><div class="nav"><button class="btn-back" id="btn2b">← Back</button><button class="btn-next" id="btn2">Next →</button></div></div>
-</div>
-
-<!-- PAGE 3 -->
-<div id="pg3" class="pg">
-  <div style="height:2px"></div>
-  <div class="prog-wrap">
-    <div class="prog-lbl">Step 3 of 5</div>
-    <div class="prog-bar"><div class="prog-fill" style="width:60%"></div></div>
-    <div class="prog-steps"><div class="prog-step done">✓</div><div class="prog-step done">✓</div><div class="prog-step active">3</div><div class="prog-step todo">4</div><div class="prog-step todo">5</div></div>
-  </div>
-  <div id="warn-panel-3" class="warn-panel"><div class="warn-cards" id="warn-cards-3"></div></div>
-  <div class="card">
     <div class="sec-title">C — Special Radiological Investigations</div>
-    <div id="banner3" style="background:var(--teal-lt);border-radius:6px;padding:7px 12px;font-size:11.5px;color:#065f46;font-weight:600;margin-bottom:10px;display:none"></div>
+    <div id="banner2" style="background:var(--teal-lt);border-radius:6px;padding:7px 12px;font-size:11.5px;color:#065f46;font-weight:600;margin-bottom:10px;display:none"></div>
     <div class="legend">
       <span><span class="ldot" style="background:var(--teal)"></span>Mandatory</span>
       <span><span class="ldot" style="background:var(--amber)"></span>Age &gt;50</span>
       <span><span class="ldot" style="background:var(--purple)"></span>Conditional</span>
       <span><span class="ldot" style="background:var(--slate-300)"></span>Not required</span>
     </div>
+    <div style="background:var(--slate-50);border:1px solid var(--border);border-radius:6px;padding:7px 12px;font-size:11px;color:var(--slate-500);margin-bottom:12px;font-weight:500;line-height:1.6">
+      📝 Enter detailed findings per investigation below. Use <strong>📎 Upload</strong> or <strong>📷 Capture</strong> to attach imaging directly to each entry.
+    </div>
     <div class="inv-wrap">
-      <div class="inv-col-hdr"><div></div><div></div><div style="padding-left:8px">Investigation</div><div>Findings / Report</div><div>Date</div></div>
       <div id="radio-body"></div>
     </div>
   </div>
   <div class="card">
-    <div class="sec-title">Radiological Images &amp; Reports</div>
+    <div class="sec-title">Radiological Images &amp; Reports — Bulk Upload</div>
     <div class="upload-zone" id="radio-img-zone">
       <input type="file" id="radio-img-input" accept="image/*,application/pdf" multiple>
       <div class="upload-icon">🩻</div>
@@ -400,14 +404,11 @@ textarea.fi{resize:none;min-height:56px}
     <div class="upload-grid" id="radio-img-grid"></div>
     <div class="upload-count" id="radio-img-count"></div>
   </div>
-
   <div class="card">
     <div class="sec-title">D — Radio Conference &amp; MDT Discussion</div>
     <div style="background:var(--teal-lt);border-radius:6px;padding:8px 13px;font-size:11.5px;color:#065f46;font-weight:600;margin-bottom:14px">
       Record details of any radiology conference or multidisciplinary team meeting held prior to listing for surgery.
     </div>
-
-    <!-- Radio Conference -->
     <div style="font-size:11px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--slate-100)">Radiology Conference</div>
     <div class="frow two">
       <div class="fld"><label>Date of conference</label><input type="date" class="fi" id="rc-date"></div>
@@ -422,78 +423,42 @@ textarea.fi{resize:none;min-height:56px}
       <div class="fld"><label>Imaging modality reviewed</label>
         <select class="fi" id="rc-modality">
           <option value="">— Select —</option>
-          <option>CT Scan</option>
-          <option>MRI</option>
-          <option>USG</option>
-          <option>PET-CT</option>
-          <option>Mammography</option>
-          <option>X-Ray</option>
-          <option>Multiple modalities</option>
-          <option>Other</option>
+          <option>CT Scan</option><option>MRI</option><option>USG</option><option>PET-CT</option>
+          <option>Mammography</option><option>X-Ray</option><option>Multiple modalities</option><option>Other</option>
         </select>
       </div>
       <div class="fld"><label>Conference outcome</label>
         <select class="fi" id="rc-outcome">
           <option value="">— Select —</option>
-          <option>Proceed with planned surgery</option>
-          <option>Further imaging required</option>
-          <option>Staging revised</option>
-          <option>Plan changed</option>
-          <option>Deferred — pending report</option>
+          <option>Proceed with planned surgery</option><option>Further imaging required</option>
+          <option>Staging revised</option><option>Plan changed</option><option>Deferred — pending report</option>
         </select>
       </div>
     </div>
-    <div class="frow">
-      <div class="fld"><label>Additional notes</label>
-        <input class="fi" id="rc-notes" placeholder="Any change in operative plan based on imaging review">
-      </div>
-    </div>
-
-    <!-- MDT Discussion -->
+    <div class="frow"><div class="fld"><label>Additional notes</label><input class="fi" id="rc-notes" placeholder="Any change in operative plan based on imaging review"></div></div>
     <div style="font-size:11px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;margin:18px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--slate-100)">Multidisciplinary Team (MDT) Discussion</div>
     <div class="frow two">
       <div class="fld"><label>Date of MDT</label><input type="date" class="fi" id="mdt-date"></div>
       <div class="fld"><label>MDT chairperson</label><input class="fi" id="mdt-chair" placeholder="Name / designation"></div>
     </div>
-    <div class="frow">
-      <div class="fld"><label>Specialties present</label>
-        <input class="fi" id="mdt-specialties" placeholder="e.g. Surgical Oncology · Medical Oncology · Radiology · Pathology · Radiation Oncology · Anaesthesia">
-      </div>
-    </div>
-    <div class="frow">
-      <div class="fld"><label>Case presented by</label>
-        <input class="fi" id="mdt-presenter" placeholder="Name / designation of presenting surgeon">
-      </div>
-    </div>
-    <div class="frow">
-      <div class="fld"><label>MDT decision / recommendation</label>
-        <textarea class="fi" id="mdt-decision" placeholder="Document MDT consensus · Operative plan endorsed · Neoadjuvant therapy discussed · Staging · Margins · Reconstruction plan…" style="min-height:72px"></textarea>
-      </div>
-    </div>
+    <div class="frow"><div class="fld"><label>Specialties present</label><input class="fi" id="mdt-specialties" placeholder="e.g. Surgical Oncology · Medical Oncology · Radiology · Pathology · Radiation Oncology · Anaesthesia"></div></div>
+    <div class="frow"><div class="fld"><label>Case presented by</label><input class="fi" id="mdt-presenter" placeholder="Name / designation of presenting surgeon"></div></div>
+    <div class="frow"><div class="fld"><label>MDT decision / recommendation</label>
+      <textarea class="fi" id="mdt-decision" placeholder="Document MDT consensus · Operative plan endorsed · Neoadjuvant therapy discussed · Staging · Margins · Reconstruction plan…" style="min-height:72px"></textarea>
+    </div></div>
     <div class="frow two">
       <div class="fld"><label>MDT outcome</label>
         <select class="fi" id="mdt-outcome">
           <option value="">— Select —</option>
-          <option>Proceed with planned surgery</option>
-          <option>Neoadjuvant therapy recommended</option>
-          <option>Adjuvant therapy planned post-op</option>
-          <option>Further workup required</option>
-          <option>Non-surgical management</option>
-          <option>Plan modified</option>
+          <option>Proceed with planned surgery</option><option>Neoadjuvant therapy recommended</option>
+          <option>Adjuvant therapy planned post-op</option><option>Further workup required</option>
+          <option>Non-surgical management</option><option>Plan modified</option>
           <option>Deferred — pending biopsy / staging</option>
         </select>
       </div>
-      <div class="fld"><label>MDT reference / minute no.</label>
-        <input class="fi" id="mdt-ref" placeholder="e.g. MDT-2024-0147">
-      </div>
+      <div class="fld"><label>MDT reference / minute no.</label><input class="fi" id="mdt-ref" placeholder="e.g. MDT-2024-0147"></div>
     </div>
-    <div class="frow">
-      <div class="fld"><label>Additional MDT notes</label>
-        <input class="fi" id="mdt-notes" placeholder="Any special instructions arising from MDT discussion">
-      </div>
-    </div>
-
-    <!-- Attendance checkboxes -->
+    <div class="frow"><div class="fld"><label>Additional MDT notes</label><input class="fi" id="mdt-notes" placeholder="Any special instructions arising from MDT discussion"></div></div>
     <div style="font-size:10.5px;color:var(--slate-500);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">MDT Attendance confirmation</div>
     <div id="mdt-attend-wrap" style="display:flex;flex-wrap:wrap;gap:8px 16px;margin-bottom:4px">
       <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;cursor:pointer"><input type="checkbox" style="accent-color:var(--teal);width:14px;height:14px"> Surgical Oncology</label>
@@ -506,6 +471,52 @@ textarea.fi{resize:none;min-height:56px}
       <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;cursor:pointer"><input type="checkbox" style="accent-color:var(--teal);width:14px;height:14px"> Gastroenterology</label>
       <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;cursor:pointer"><input type="checkbox" style="accent-color:var(--teal);width:14px;height:14px"> Cardiology</label>
       <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;cursor:pointer"><input type="checkbox" style="accent-color:var(--teal);width:14px;height:14px"> Palliative Care</label>
+    </div>
+  </div>
+  <div class="card no-print"><div class="nav"><button class="btn-back" id="btn2b">← Back</button><button class="btn-next" id="btn2">Next →</button></div></div>
+</div>
+
+<!-- PAGE 3 — STANDARD + BLOOD INVESTIGATIONS -->
+<div id="pg3" class="pg">
+  <div style="height:2px"></div>
+  <div class="prog-wrap">
+    <div class="prog-lbl">Step 3 of 5</div>
+    <div class="prog-bar"><div class="prog-fill" style="width:60%"></div></div>
+    <div class="prog-steps"><div class="prog-step done">✓</div><div class="prog-step done">✓</div><div class="prog-step active">3</div><div class="prog-step todo">4</div><div class="prog-step todo">5</div></div>
+  </div>
+  <div id="warn-panel-3" class="warn-panel"><div class="warn-cards" id="warn-cards-3"></div></div>
+  <div class="card">
+    <div class="sec-title">A — Standard Investigations</div>
+    <div id="banner3" style="background:var(--teal-lt);border-radius:6px;padding:7px 12px;font-size:11.5px;color:#065f46;font-weight:600;margin-bottom:10px;display:none"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px">
+      <div class="legend" style="margin-bottom:0">
+        <span><span class="ldot" style="background:var(--teal)"></span>Mandatory</span>
+        <span><span class="ldot" style="background:var(--amber)"></span>Age &gt;50</span>
+        <span><span class="ldot" style="background:var(--purple)"></span>Conditional</span>
+        <span><span class="ldot" style="background:var(--slate-300)"></span>Not required</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+        <label style="font-size:10.5px;color:var(--slate-500);font-weight:600;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap">Sample date</label>
+        <input type="date" id="std-common-date" style="border:none;border-bottom:2px solid var(--slate-200);padding:5px 2px;font-size:12px;font-family:inherit;background:transparent;outline:none;color:var(--slate-700);font-weight:500;transition:border-color .2s" onfocus="this.style.borderBottomColor='var(--teal)'" onblur="this.style.borderBottomColor='var(--slate-200)'">
+      </div>
+    </div>
+    <div style="font-size:10.5px;color:var(--slate-500);background:var(--slate-50);border:1px solid var(--border);border-radius:6px;padding:6px 12px;margin-bottom:10px;font-weight:500">
+      📎 Use the image buttons on each row to attach a report photograph or capture directly from camera.
+    </div>
+    <div class="inv-wrap">
+      <div style="display:grid;grid-template-columns:26px 18px 1fr 1fr 80px;padding:7px 10px;font-size:9.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border);background:var(--slate-50)">
+        <div></div><div></div><div style="padding-left:8px">Investigation</div><div>Value / Result</div><div style="text-align:center">Img</div>
+      </div>
+      <div id="std-body"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="sec-title">B — Special Blood Investigations</div>
+    <div class="inv-wrap">
+      <div style="display:grid;grid-template-columns:26px 18px 1fr 100px 90px 80px;padding:7px 10px;font-size:9.5px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.07em;border-bottom:1px solid var(--border);background:var(--slate-50)">
+        <div></div><div></div><div style="padding-left:8px">Investigation</div><div>Value / Result</div><div>Date</div><div style="text-align:center">Img</div>
+      </div>
+      <div id="blood-body"></div>
     </div>
   </div>
   <div class="card no-print"><div class="nav"><button class="btn-back" id="btn3b">← Back</button><button class="btn-next" id="btn3">Next →</button></div></div>
@@ -593,240 +604,152 @@ textarea.fi{resize:none;min-height:56px}
 </div>
 
 </div>
-
 <script>
 (function(){
 'use strict';
 var curProc=null, INV_STATE={};
+/* Per-investigation images: { [invId]: File object } */
+var INV_IMGS={};
+/* Bulk upload file arrays — exposed at module scope for payload collection */
+var BULK_FILES={clin:[],radio:[]};
 function getAge(){var v=parseInt(document.getElementById('f-age').value,10);return isNaN(v)?0:v;}
 function over50(){return getAge()>50;}
 
-/* ═══ INVESTIGATIONS ══════════════════════════════════════════════════ */
+/* ═══ INVESTIGATION DATA ══════════════════════════════════════════════ */
 var STD=[
-  /* ── CBC ── */
-  {id:'hb',       name:'Haemoglobin (Hb)',           sub:'g/dL · Anaemia screen · Transfusion threshold',      req:'ALL',cond:'',group:'CBC — Complete Blood Count'},
-  {id:'wbc',      name:'Total WBC Count',            sub:'cells/µL · Infection · Immunocompromise',            req:'ALL',cond:'',group:'CBC — Complete Blood Count'},
-  {id:'platelets',name:'Platelet Count',             sub:'×10⁹/L · Bleeding risk · Thrombocytopaenia',        req:'ALL',cond:'',group:'CBC — Complete Blood Count'},
-  /* ── LFT ── */
-  {id:'bil_d',    name:'Bilirubin — Direct',         sub:'mg/dL · Conjugated · Obstructive jaundice',         req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
-  {id:'bil_id',   name:'Bilirubin — Indirect',       sub:'mg/dL · Unconjugated · Haemolysis screen',          req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
-  {id:'albumin',  name:'Serum Albumin',              sub:'g/dL · Nutritional status · Synthetic function',    req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
-  {id:'pt_lft',   name:'Prothrombin Time (PT)',      sub:'Seconds · Liver synthetic function',                req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
-  {id:'alp',      name:'ALP — Alkaline Phosphatase', sub:'U/L · Cholestasis · Bone disease · HPB workup',    req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
-  /* ── RFT ── */
-  {id:'urea',     name:'Blood Urea',                 sub:'mg/dL · Renal function · Pre-renal assessment',     req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
-  {id:'creat',    name:'Serum Creatinine',           sub:'mg/dL · GFR estimate · CKD staging',               req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
-  {id:'sodium',   name:'Serum Sodium (Na⁺)',         sub:'mEq/L · Fluid balance · Hypo/hypernatraemia',      req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
-  {id:'potass',   name:'Serum Potassium (K⁺)',       sub:'mEq/L · Arrhythmia risk · Bowel prep correction',  req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
-  /* ── Coagulation ── */
-  {id:'inr',      name:'INR',                        sub:'International Normalised Ratio · Target <1.5 for surgery', req:'ALL',cond:'',group:'Coagulation'},
-  /* ── Serology ── */
-  {id:'hiv',      name:'HIV I &amp; II',             sub:'Reactive / Non-reactive · Mandatory pre-op serology',req:'ALL',cond:'',group:'Serology'},
-  {id:'hbsag',    name:'HBsAg',                      sub:'Reactive / Non-reactive · Hepatitis B surface antigen', req:'ALL',cond:'',group:'Serology'},
-  {id:'hcv',      name:'Anti-HCV',                   sub:'Reactive / Non-reactive · Hepatitis C antibody',   req:'ALL',cond:'',group:'Serology'},
-  /* ── Imaging ── */
-  {id:'cxr',      name:'Chest X-Ray (PA view)',      sub:'Cardiorespiratory baseline · Mediastinum · Lung fields', req:'ALL',cond:'',group:'Baseline Imaging'},
-  {id:'ecg',      name:'ECG — 12-lead',              sub:'Rhythm · Ischaemia · Intervals · QTc',             req:'ALL',cond:'',group:'Baseline Imaging'},
+  {id:'hb',name:'Haemoglobin (Hb)',sub:'g/dL · Anaemia screen · Transfusion threshold',req:'ALL',cond:'',group:'CBC — Complete Blood Count'},
+  {id:'wbc',name:'Total WBC Count',sub:'cells/µL · Infection · Immunocompromise',req:'ALL',cond:'',group:'CBC — Complete Blood Count'},
+  {id:'platelets',name:'Platelet Count',sub:'×10⁹/L · Bleeding risk · Thrombocytopaenia',req:'ALL',cond:'',group:'CBC — Complete Blood Count'},
+  {id:'bil_d',name:'Bilirubin — Direct',sub:'mg/dL · Conjugated · Obstructive jaundice',req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
+  {id:'bil_id',name:'Bilirubin — Indirect',sub:'mg/dL · Unconjugated · Haemolysis screen',req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
+  {id:'albumin',name:'Serum Albumin',sub:'g/dL · Nutritional status · Synthetic function',req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
+  {id:'pt_lft',name:'Prothrombin Time (PT)',sub:'Seconds · Liver synthetic function',req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
+  {id:'alp',name:'ALP — Alkaline Phosphatase',sub:'U/L · Cholestasis · Bone disease · HPB workup',req:'ALL',cond:'',group:'LFT — Liver Function Tests'},
+  {id:'urea',name:'Blood Urea',sub:'mg/dL · Renal function · Pre-renal assessment',req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
+  {id:'creat',name:'Serum Creatinine',sub:'mg/dL · GFR estimate · CKD staging',req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
+  {id:'sodium',name:'Serum Sodium (Na⁺)',sub:'mEq/L · Fluid balance · Hypo/hypernatraemia',req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
+  {id:'potass',name:'Serum Potassium (K⁺)',sub:'mEq/L · Arrhythmia risk · Bowel prep correction',req:'ALL',cond:'',group:'RFT — Renal Function Tests'},
+  {id:'inr',name:'INR',sub:'International Normalised Ratio · Target <1.5 for surgery',req:'ALL',cond:'',group:'Coagulation'},
+  {id:'hiv',name:'HIV I & II',sub:'Reactive / Non-reactive · Mandatory pre-op serology',req:'ALL',cond:'',group:'Serology'},
+  {id:'hbsag',name:'HBsAg',sub:'Reactive / Non-reactive · Hepatitis B surface antigen',req:'ALL',cond:'',group:'Serology'},
+  {id:'hcv',name:'Anti-HCV',sub:'Reactive / Non-reactive · Hepatitis C antibody',req:'ALL',cond:'',group:'Serology'},
+  {id:'cxr',name:'Chest X-Ray (PA view)',sub:'Cardiorespiratory baseline · Mediastinum · Lung fields',req:'ALL',cond:'',group:'Baseline Imaging'},
+  {id:'ecg',name:'ECG — 12-lead',sub:'Rhythm · Ischaemia · Intervals · QTc',req:'ALL',cond:'',group:'Baseline Imaging'},
 ];
-
 var BLOOD=[
-  {id:'rbs',   name:'RBS — Random Blood Sugar',         sub:'Current glycaemic status',                              req:'ALL',                                                   cond:''},
-  {id:'hba1c', name:'HbA1c',                            sub:'Target <8% for elective; all diabetics',               req:'gi_surgery,pad_bypass,breast_surgery,whipple',           cond:'gall_stone,hernia,appendicectomy,adrenal_surgery,proctology,thyroid_surgery'},
-  {id:'tft_t3',  name:'T3 — Triiodothyronine',        sub:'pg/mL · Confirm euthyroid; hyperthyroidism screen',  req:'thyroid_surgery',  cond:'breast_surgery,pad_bypass'},
-  {id:'tft_t4',  name:'T4 — Thyroxine (Free T4)',     sub:'ng/dL · Thyroid hormone level; hypothyroid screen',  req:'thyroid_surgery',  cond:'breast_surgery,pad_bypass'},
-  {id:'tft_tsh', name:'TSH — Thyroid Stimulating Hormone', sub:'mIU/L · Most sensitive thyroid function marker', req:'thyroid_surgery',  cond:'breast_surgery,pad_bypass'},
-  {id:'ipth',  name:'iPTH — Intact PTH',               sub:'Baseline + IOPTH monitoring',                         req:'thyroid_surgery',                                       cond:''},
-  {id:'vitd',  name:'Vitamin D — 25-OH',               sub:'Correct deficiency pre-op',                            req:'thyroid_surgery',                                       cond:''},
-  {id:'sca',   name:'Serum Calcium — Total + Ionised', sub:'Baseline; post-op hypocalcaemia monitoring',           req:'thyroid_surgery',                                       cond:''},
-  {id:'sphos', name:'Serum Phosphate',                 sub:'HPT workup; nutritional assessment',                    req:'thyroid_surgery',                                       cond:'gi_surgery,whipple'},
-  {id:'smag',  name:'Serum Magnesium',                 sub:'Post-op electrolyte management',                        req:'thyroid_surgery',                                       cond:'whipple'},
-  {id:'salb',  name:'Serum Albumin',                   sub:'Nutritional status; corrected calcium',                 req:'thyroid_surgery,gi_surgery,whipple',                    cond:'breast_surgery'},
-  {id:'elec',  name:'Serum Electrolytes — Na/K/Cl',   sub:'Bowel prep; diuretics; oncology; adrenal',             req:'gi_surgery,adrenal_surgery,whipple',                    cond:'breast_surgery,pad_bypass'},
-  {id:'lipid', name:'Lipid Profile',                   sub:'CVS risk; PAD baseline',                               req:'pad_bypass',                                            cond:'gi_surgery,breast_surgery,whipple'},
-  {id:'homo',  name:'Serum Homocysteine',              sub:'PAD / thrombophilia workup',                            req:'pad_bypass',                                            cond:''},
-  {id:'aptt',  name:'APTT',                            sub:'Full coagulation; vascular / major surgery',            req:'pad_bypass,gi_surgery,whipple',                         cond:'adrenal_surgery'},
-  {id:'egfr',  name:'eGFR',                           sub:'Contrast nephropathy risk; CKD staging',               req:'pad_bypass,adrenal_surgery,whipple',                    cond:'thyroid_surgery,gi_surgery'},
-  {id:'bgrp',  name:'Blood Group &amp; Crossmatch',   sub:'Units per surgical plan — notify blood bank',           req:'gi_surgery,pad_bypass,breast_surgery,whipple,adrenal_surgery', cond:'thyroid_surgery,hernia,appendicectomy'},
-  {id:'cea',   name:'CEA',                            sub:'Baseline tumour marker — colon / breast',               req:'gi_surgery,breast_surgery,whipple',                     cond:''},
-  {id:'ca153', name:'CA 15-3',                        sub:'Breast tumour marker; post-op reference',               req:'breast_surgery',                                        cond:''},
-  {id:'ca199', name:'CA 19-9',                        sub:'Ca colon / pancreaticobiliary',                         req:'gi_surgery,whipple',                                    cond:''},
-  {id:'calci', name:'Calcitonin',                     sub:'Medullary thyroid carcinoma screen',                    req:'',                                                      cond:'thyroid_surgery'},
-  {id:'crp',   name:'CRP — C-Reactive Protein',       sub:'Inflammation marker; appendicitis severity',            req:'appendicectomy',                                        cond:''},
-  {id:'amyl',  name:'Serum Amylase + Lipase',         sub:'Pancreatic enzyme baseline; HPB workup',                req:'whipple',                                               cond:'gall_stone,appendicectomy'},
-  {id:'cort',  name:'Serum Cortisol (8 AM)',          sub:'HPA axis; adrenal insufficiency baseline',              req:'adrenal_surgery',                                       cond:''},
-  {id:'meta',  name:'Plasma Metanephrines',           sub:'Phaeochromocytoma screen — MANDATORY pre-adrenalectomy',req:'adrenal_surgery',                                       cond:''},
-  {id:'alren', name:'Aldosterone : Renin Ratio',      sub:"Conn's syndrome / primary hyperaldosteronism",         req:'adrenal_surgery',                                       cond:''},
+  {id:'rbs',name:'RBS — Random Blood Sugar',sub:'Current glycaemic status',req:'ALL',cond:''},
+  {id:'hba1c',name:'HbA1c',sub:'Target <8% for elective; all diabetics',req:'gi_surgery,pad_bypass,breast_surgery,whipple',cond:'gall_stone,hernia,appendicectomy,adrenal_surgery,proctology,thyroid_surgery'},
+  {id:'tft_t3',name:'T3 — Triiodothyronine',sub:'pg/mL · Confirm euthyroid; hyperthyroidism screen',req:'thyroid_surgery',cond:'breast_surgery,pad_bypass'},
+  {id:'tft_t4',name:'T4 — Thyroxine (Free T4)',sub:'ng/dL · Thyroid hormone level; hypothyroid screen',req:'thyroid_surgery',cond:'breast_surgery,pad_bypass'},
+  {id:'tft_tsh',name:'TSH — Thyroid Stimulating Hormone',sub:'mIU/L · Most sensitive thyroid function marker',req:'thyroid_surgery',cond:'breast_surgery,pad_bypass'},
+  {id:'ipth',name:'iPTH — Intact PTH',sub:'Baseline + IOPTH monitoring',req:'thyroid_surgery',cond:''},
+  {id:'vitd',name:'Vitamin D — 25-OH',sub:'Correct deficiency pre-op',req:'thyroid_surgery',cond:''},
+  {id:'sca',name:'Serum Calcium — Total + Ionised',sub:'Baseline; post-op hypocalcaemia monitoring',req:'thyroid_surgery',cond:''},
+  {id:'sphos',name:'Serum Phosphate',sub:'HPT workup; nutritional assessment',req:'thyroid_surgery',cond:'gi_surgery,whipple'},
+  {id:'smag',name:'Serum Magnesium',sub:'Post-op electrolyte management',req:'thyroid_surgery',cond:'whipple'},
+  {id:'salb',name:'Serum Albumin',sub:'Nutritional status; corrected calcium',req:'thyroid_surgery,gi_surgery,whipple',cond:'breast_surgery'},
+  {id:'elec',name:'Serum Electrolytes — Na/K/Cl',sub:'Bowel prep; diuretics; oncology; adrenal',req:'gi_surgery,adrenal_surgery,whipple',cond:'breast_surgery,pad_bypass'},
+  {id:'lipid',name:'Lipid Profile',sub:'CVS risk; PAD baseline',req:'pad_bypass',cond:'gi_surgery,breast_surgery,whipple'},
+  {id:'homo',name:'Serum Homocysteine',sub:'PAD / thrombophilia workup',req:'pad_bypass',cond:''},
+  {id:'aptt',name:'APTT',sub:'Full coagulation; vascular / major surgery',req:'pad_bypass,gi_surgery,whipple',cond:'adrenal_surgery'},
+  {id:'egfr',name:'eGFR',sub:'Contrast nephropathy risk; CKD staging',req:'pad_bypass,adrenal_surgery,whipple',cond:'thyroid_surgery,gi_surgery'},
+  {id:'bgrp',name:'Blood Group & Crossmatch',sub:'Units per surgical plan — notify blood bank',req:'gi_surgery,pad_bypass,breast_surgery,whipple,adrenal_surgery',cond:'thyroid_surgery,hernia,appendicectomy'},
+  {id:'cea',name:'CEA',sub:'Baseline tumour marker — colon / breast',req:'gi_surgery,breast_surgery,whipple',cond:''},
+  {id:'ca153',name:'CA 15-3',sub:'Breast tumour marker; post-op reference',req:'breast_surgery',cond:''},
+  {id:'ca199',name:'CA 19-9',sub:'Ca colon / pancreaticobiliary',req:'gi_surgery,whipple',cond:''},
+  {id:'calci',name:'Calcitonin',sub:'Medullary thyroid carcinoma screen',req:'',cond:'thyroid_surgery'},
+  {id:'crp',name:'CRP — C-Reactive Protein',sub:'Inflammation marker; appendicitis severity',req:'appendicectomy',cond:''},
+  {id:'amyl',name:'Serum Amylase + Lipase',sub:'Pancreatic enzyme baseline; HPB workup',req:'whipple',cond:'gall_stone,appendicectomy'},
+  {id:'cort',name:'Serum Cortisol (8 AM)',sub:'HPA axis; adrenal insufficiency baseline',req:'adrenal_surgery',cond:''},
+  {id:'meta',name:'Plasma Metanephrines',sub:'Phaeochromocytoma screen — MANDATORY pre-adrenalectomy',req:'adrenal_surgery',cond:''},
+  {id:'alren',name:'Aldosterone : Renin Ratio',sub:"Conn's syndrome / primary hyperaldosteronism",req:'adrenal_surgery',cond:''},
 ];
-
 var RADIO=[
-  {id:'echo',      name:'2D Echo — Echocardiography',         sub:'EF · Wall motion · Valves · Cardiac reserve',                req:'breast_surgery,gi_surgery,pad_bypass,whipple,adrenal_surgery', cond:'hernia,thyroid_surgery,appendicectomy', age:true},
-  {id:'pft',       name:'PFT — Pulmonary Function Tests',     sub:'Spirometry · FEV1 · FVC · DLCO',                            req:'breast_surgery,gi_surgery,pad_bypass,whipple',                  cond:'thyroid_surgery,hernia',               age:true},
-  {id:'usg',       name:'USG Whole Abdomen',                  sub:'Gallstones · Liver · Nodes · Staging',                      req:'gall_stone,gi_surgery,breast_surgery,appendicectomy',           cond:'hernia'},
-  {id:'usg_nk',    name:'USG Neck',                           sub:'Thyroid / parathyroid morphology · Nodule map',             req:'thyroid_surgery',                                               cond:''},
-  {id:'fnac',      name:'FNAC / Biopsy — review report',      sub:'Cytology / histology reviewed before listing',              req:'breast_surgery,thyroid_surgery',                                cond:''},
-  {id:'mammo',     name:'Bilateral Mammography',              sub:'Pre-op breast imaging; current staging films',              req:'breast_surgery',                                                cond:''},
-  {id:'ctap',      name:'CT Abdomen + Pelvis (contrast)',     sub:'Staging · Extent · Vessel anatomy',                        req:'gi_surgery,whipple',                                            cond:'breast_surgery,appendicectomy'},
-  {id:'ct_ch',     name:'CT Chest — staging / metastasis',   sub:'Pulmonary nodules · Nodes · Pleural disease',               req:'gi_surgery,whipple',                                            cond:'breast_surgery'},
-  {id:'ct_nk',     name:'CT Neck / Chest',                   sub:'Substernal goitre · Tracheal compression',                 req:'',                                                              cond:'thyroid_surgery'},
-  {id:'mibi',      name:'Sestamibi Scan (MIBI)',             sub:'Parathyroid adenoma localisation pre-op',                   req:'thyroid_surgery',                                               cond:''},
-  {id:'ct4d',      name:'4D CT Parathyroid',                 sub:'Equivocal MIBI; re-operative parathyroid',                 req:'',                                                              cond:'thyroid_surgery'},
-  {id:'dexa',      name:'DEXA Scan — Bone Mineral Density',  sub:'Osteoporosis in HPT; pre/post-op comparison',              req:'',                                                              cond:'thyroid_surgery'},
-  {id:'ct_leg',    name:'CT Angiography — Both Lower Limbs', sub:'MDCT · Arterial anatomy · Runoff · Conduit planning',      req:'pad_bypass',                                                    cond:''},
-  {id:'ct_cor',    name:'CT Coronary Angiography',           sub:'CAD assessment before major vascular surgery',             req:'pad_bypass',                                                    cond:'gi_surgery,whipple'},
-  {id:'duplex',    name:'Duplex Doppler — Lower Limbs (B/L)',sub:'Vein mapping · GSV · Arterial waveforms',                 req:'pad_bypass',                                                    cond:''},
-  {id:'abi',       name:'ABI — Ankle-Brachial Index',        sub:'Bedside · PAD severity grading · Bilateral',               req:'pad_bypass',                                                    cond:''},
-  {id:'renal_dop', name:'Renal Artery Doppler (B/L)',        sub:'Renovascular HTN · Renal artery stenosis',                 req:'pad_bypass',                                                    cond:''},
-  {id:'car_dop',   name:'Carotid Doppler (B/L)',             sub:'Carotid stenosis · Cerebrovascular disease',               req:'pad_bypass',                                                    cond:''},
-  {id:'laryn',     name:'Fibreoptic Laryngoscopy',           sub:'Pre-op RLN / vocal cord assessment — MANDATORY',           req:'thyroid_surgery',                                               cond:''},
-  {id:'mrcp',      name:'MRCP',                             sub:'CBD stones / obstructive jaundice; HPB workup',            req:'whipple',                                                       cond:'gall_stone'},
-  {id:'mri_b',     name:'MRI Breast',                       sub:'Extent · Multifocality · Reconstruction planning',         req:'',                                                              cond:'breast_surgery'},
-  {id:'pet',       name:'PET-CT Scan',                      sub:'Staging / restaging; metastasis detection',                req:'',                                                              cond:'gi_surgery,breast_surgery,whipple'},
-  {id:'tc',        name:'Tc-99m Thyroid Scan',              sub:'Hot / cold nodule functional assessment',                  req:'',                                                              cond:'thyroid_surgery'},
-  {id:'ct_ad',     name:'CT Abdomen — Adrenal Protocol',    sub:'Adrenal mass characterisation · Size · Lipid content',    req:'adrenal_surgery',                                               cond:''},
-  {id:'mibg_scan', name:'MIBG Scan',                        sub:'Phaeochromocytoma localisation; extra-adrenal disease',   req:'',                                                              cond:'adrenal_surgery'},
-  {id:'mri_ad',    name:'MRI Adrenal',                      sub:'Equivocal CT; lipid-poor adenoma characterisation',       req:'',                                                              cond:'adrenal_surgery'},
-  {id:'ct_app',    name:'CT Abdomen (Appendicitis Protocol)',sub:'Perforation / abscess / complicated appendicitis',        req:'',                                                              cond:'appendicectomy'},
+  {id:'echo',name:'2D Echo — Echocardiography',sub:'EF · Wall motion · Valves · Cardiac reserve',req:'breast_surgery,gi_surgery,pad_bypass,whipple,adrenal_surgery',cond:'hernia,thyroid_surgery,appendicectomy',age:true},
+  {id:'pft',name:'PFT — Pulmonary Function Tests',sub:'Spirometry · FEV1 · FVC · DLCO',req:'breast_surgery,gi_surgery,pad_bypass,whipple',cond:'thyroid_surgery,hernia',age:true},
+  {id:'usg',name:'USG Whole Abdomen',sub:'Gallstones · Liver · Nodes · Staging',req:'gall_stone,gi_surgery,breast_surgery,appendicectomy',cond:'hernia'},
+  {id:'usg_nk',name:'USG Neck',sub:'Thyroid / parathyroid morphology · Nodule map',req:'thyroid_surgery',cond:''},
+  {id:'fnac',name:'FNAC / Biopsy — review report',sub:'Cytology / histology reviewed before listing',req:'breast_surgery,thyroid_surgery',cond:''},
+  {id:'mammo',name:'Bilateral Mammography',sub:'Pre-op breast imaging; current staging films',req:'breast_surgery',cond:''},
+  {id:'ctap',name:'CT Abdomen + Pelvis (contrast)',sub:'Staging · Extent · Vessel anatomy',req:'gi_surgery,whipple',cond:'breast_surgery,appendicectomy'},
+  {id:'ct_ch',name:'CT Chest — staging / metastasis',sub:'Pulmonary nodules · Nodes · Pleural disease',req:'gi_surgery,whipple',cond:'breast_surgery'},
+  {id:'ct_nk',name:'CT Neck / Chest',sub:'Substernal goitre · Tracheal compression',req:'',cond:'thyroid_surgery'},
+  {id:'mibi',name:'Sestamibi Scan (MIBI)',sub:'Parathyroid adenoma localisation pre-op',req:'thyroid_surgery',cond:''},
+  {id:'ct4d',name:'4D CT Parathyroid',sub:'Equivocal MIBI; re-operative parathyroid',req:'',cond:'thyroid_surgery'},
+  {id:'dexa',name:'DEXA Scan — Bone Mineral Density',sub:'Osteoporosis in HPT; pre/post-op comparison',req:'',cond:'thyroid_surgery'},
+  {id:'ct_leg',name:'CT Angiography — Both Lower Limbs',sub:'MDCT · Arterial anatomy · Runoff · Conduit planning',req:'pad_bypass',cond:''},
+  {id:'ct_cor',name:'CT Coronary Angiography',sub:'CAD assessment before major vascular surgery',req:'pad_bypass',cond:'gi_surgery,whipple'},
+  {id:'duplex',name:'Duplex Doppler — Lower Limbs (B/L)',sub:'Vein mapping · GSV · Arterial waveforms',req:'pad_bypass',cond:''},
+  {id:'abi',name:'ABI — Ankle-Brachial Index',sub:'Bedside · PAD severity grading · Bilateral',req:'pad_bypass',cond:''},
+  {id:'renal_dop',name:'Renal Artery Doppler (B/L)',sub:'Renovascular HTN · Renal artery stenosis',req:'pad_bypass',cond:''},
+  {id:'car_dop',name:'Carotid Doppler (B/L)',sub:'Carotid stenosis · Cerebrovascular disease',req:'pad_bypass',cond:''},
+  {id:'laryn',name:'Fibreoptic Laryngoscopy',sub:'Pre-op RLN / vocal cord assessment — MANDATORY',req:'thyroid_surgery',cond:''},
+  {id:'mrcp',name:'MRCP',sub:'CBD stones / obstructive jaundice; HPB workup',req:'whipple',cond:'gall_stone'},
+  {id:'mri_b',name:'MRI Breast',sub:'Extent · Multifocality · Reconstruction planning',req:'',cond:'breast_surgery'},
+  {id:'pet',name:'PET-CT Scan',sub:'Staging / restaging; metastasis detection',req:'',cond:'gi_surgery,breast_surgery,whipple'},
+  {id:'tc',name:'Tc-99m Thyroid Scan',sub:'Hot / cold nodule functional assessment',req:'',cond:'thyroid_surgery'},
+  {id:'ct_ad',name:'CT Abdomen — Adrenal Protocol',sub:'Adrenal mass characterisation · Size · Lipid content',req:'adrenal_surgery',cond:''},
+  {id:'mibg_scan',name:'MIBG Scan',sub:'Phaeochromocytoma localisation; extra-adrenal disease',req:'',cond:'adrenal_surgery'},
+  {id:'mri_ad',name:'MRI Adrenal',sub:'Equivocal CT; lipid-poor adenoma characterisation',req:'',cond:'adrenal_surgery'},
+  {id:'ct_app',name:'CT Abdomen (Appendicitis Protocol)',sub:'Perforation / abscess / complicated appendicitis',req:'',cond:'appendicectomy'},
 ];
 
 /* ═══ CLEARANCES ═════════════════════════════════════════════════════ */
 var CLR_PROC={
-  gall_stone:     ['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)','Gastroenterology (if CBD stones / ERCP planned)'],
-  hernia:         ['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)'],
-  appendicectomy: ['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)','Gastroenterology (if complicated / recurrent)'],
-  breast_surgery: ['PAC — Pre-anaesthetic clearance','Oncology / Medical oncology clearance','Cardiology clearance','Radiation Oncology review','Physiotherapy assessment','Plastic surgery / Reconstruction review (if planned)'],
+  gall_stone:['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)','Gastroenterology (if CBD stones / ERCP planned)'],
+  hernia:['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)'],
+  appendicectomy:['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)','Gastroenterology (if complicated / recurrent)'],
+  breast_surgery:['PAC — Pre-anaesthetic clearance','Oncology / Medical oncology clearance','Cardiology clearance','Radiation Oncology review','Physiotherapy assessment','Plastic surgery / Reconstruction review (if planned)'],
   thyroid_surgery:['PAC — Pre-anaesthetic clearance','ENT — Fibreoptic laryngoscopy / vocal cord assessment','Endocrinology clearance (confirm euthyroid / Ca2+ status)','Cardiology clearance (if cardiac comorbidity)','Nephrology clearance (if CKD / renal stones)'],
   adrenal_surgery:['PAC — Pre-anaesthetic clearance','Endocrinology clearance — MANDATORY','Cardiology clearance (phaeochromocytoma / hypertension)','Nephrology clearance (if CKD — contrast protocol)'],
-  gi_surgery:     ['PAC — Pre-anaesthetic clearance','Oncology / Medical oncology clearance','Cardiology clearance','Stoma nurse / Colorectal nurse review','Nutritional / Dietitian assessment'],
-  whipple:        ['PAC — Pre-anaesthetic clearance','Oncology / Medical oncology clearance','Cardiology clearance — MANDATORY','Hepatology / HPB clearance','Nutritional / Dietitian assessment','Stoma nurse / Colorectal nurse review'],
-  pad_bypass:     ['PAC — Pre-anaesthetic clearance','Cardiology clearance — MANDATORY','Vascular surgery / IR review','Diabetology clearance (if DM / diabetic foot)','Nephrology clearance (if CKD — contrast protocol)'],
-  proctology:     ['PAC — Pre-anaesthetic clearance','Colorectal / Proctology review'],
-  other:          ['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)'],
+  gi_surgery:['PAC — Pre-anaesthetic clearance','Oncology / Medical oncology clearance','Cardiology clearance','Stoma nurse / Colorectal nurse review','Nutritional / Dietitian assessment'],
+  whipple:['PAC — Pre-anaesthetic clearance','Oncology / Medical oncology clearance','Cardiology clearance — MANDATORY','Hepatology / HPB clearance','Nutritional / Dietitian assessment','Stoma nurse / Colorectal nurse review'],
+  pad_bypass:['PAC — Pre-anaesthetic clearance','Cardiology clearance — MANDATORY','Vascular surgery / IR review','Diabetology clearance (if DM / diabetic foot)','Nephrology clearance (if CKD — contrast protocol)'],
+  proctology:['PAC — Pre-anaesthetic clearance','Colorectal / Proctology review'],
+  other:['PAC — Pre-anaesthetic clearance','Cardiology clearance (if cardiac comorbidity)'],
 };
 
-/* ═══ DRUG PROTOCOLS ═════════════════════════════════════════════════ */
+/* ═══ DRUGS ══════════════════════════════════════════════════════════ */
 var DRUGS={
-  gall_stone:     'Inj. Cefazolin 1g IV — 30 min pre-incision · NBM from midnight · TED stockings · Antiemetics · Review anticoagulants · MRCP / ERCP if CBD stones planned',
-  hernia:         'Inj. Cefazolin 1g IV — 30 min pre-incision · NBM from midnight · Abdominal binder · TED stockings',
-  appendicectomy: 'Inj. Cefazolin 1g + Metronidazole 500mg IV — 30 min pre-incision · NBM from midnight · TED stockings · Enoxaparin 40mg SC post-op (if VTE risk factors) · Antiemetics · IV fluids if NBM >12h',
-  breast_surgery: 'Inj. Cefazolin 1g IV pre-incision · Inj. Enoxaparin 40mg SC · TED stockings · Incentive spirometry · NBM from midnight · Wire / radioactive seed localisation if impalpable (confirm with radiology) · Carbohydrate loading drink 2h pre-op if no DM (ERAS)',
+  gall_stone:'Inj. Cefazolin 1g IV — 30 min pre-incision · NBM from midnight · TED stockings · Antiemetics · Review anticoagulants · MRCP / ERCP if CBD stones planned',
+  hernia:'Inj. Cefazolin 1g IV — 30 min pre-incision · NBM from midnight · Abdominal binder · TED stockings',
+  appendicectomy:'Inj. Cefazolin 1g + Metronidazole 500mg IV — 30 min pre-incision · NBM from midnight · TED stockings · Enoxaparin 40mg SC post-op (if VTE risk factors) · Antiemetics · IV fluids if NBM >12h',
+  breast_surgery:'Inj. Cefazolin 1g IV pre-incision · Inj. Enoxaparin 40mg SC · TED stockings · Incentive spirometry · NBM from midnight · Wire / radioactive seed localisation if impalpable (confirm with radiology) · Carbohydrate loading drink 2h pre-op if no DM (ERAS)',
   thyroid_surgery:"Confirm EUTHYROID — ATD + Beta-blocker if Graves' · Lugol's iodine × 10 days (if Graves') · Ca Gluconate 10ml (10%) drawn up on standby · Oral Ca + VitD post-op prescribed · IONM equipment booked in theatre · IOPTH — notify biochemistry lab ≥24h in advance · TED stockings · NBM from midnight",
   adrenal_surgery:"Alpha-blockade: Phenoxybenzamine (start 10–14 days pre-op if phaeochromocytoma) · Beta-blockade ONLY after adequate alpha-blockade · IV Hydrocortisone 100mg at induction (bilateral) · Stress dosing protocol post-op · Ca Gluconate on standby (bilateral) · Enoxaparin 40mg SC + TED stockings · Vasopressors + alpha/beta blockers prepared in theatre · NBM from midnight",
-  gi_surgery:     'Bowel prep — PEG-based (e.g. Moviprep / Klean-Prep) evening before · Inj. Metronidazole 500mg + Cefazolin 1g · Enoxaparin 40mg SC + TED + SCD intra-op · Oral antibiotics per ERAS · Nutritional supplements · Epidural analgesia plan · ERAS protocol · NBM from midnight · Stoma site marked pre-op',
-  whipple:        'Inj. Cefazolin 1g + Metronidazole 500mg IV · Enoxaparin 40mg SC + TED + SCD intra-op · Bowel prep — PEG evening before · Epidural / PCA plan · Octreotide post-op (per HPB surgeon) · PPI prophylaxis · ERAS protocol · NBM from midnight · Blood bank alert — ≥2 units crossmatched',
-  pad_bypass:     'Antiplatelets — discuss cessation 5–7 days · Statins — CONTINUE · Heparin bridging if anticoagulated · Enoxaparin 40mg SC post-op · Cefazolin 1g + Metronidazole · Contrast nephropathy protocol if CKD · Mark GSV with duplex pre-op · NBM from midnight',
-  proctology:     'Inj. Cefazolin 1g IV — single pre-op dose · TED stockings · NBM from midnight · Bowel prep per surgeon preference · Wound care plan documented · Day surgery protocol if ASA I–II · LA infiltration plan if applicable',
-  other:          'NBM from midnight · Inj. Cefazolin 1g IV — 30 min pre-incision · TED stockings · Anticoagulant / antiplatelet review · Document specific drug protocol per operating surgeon instructions',
+  gi_surgery:'Bowel prep — PEG-based (e.g. Moviprep / Klean-Prep) evening before · Inj. Metronidazole 500mg + Cefazolin 1g · Enoxaparin 40mg SC + TED + SCD intra-op · Oral antibiotics per ERAS · Nutritional supplements · Epidural analgesia plan · ERAS protocol · NBM from midnight · Stoma site marked pre-op',
+  whipple:'Inj. Cefazolin 1g + Metronidazole 500mg IV · Enoxaparin 40mg SC + TED + SCD intra-op · Bowel prep — PEG evening before · Epidural / PCA plan · Octreotide post-op (per HPB surgeon) · PPI prophylaxis · ERAS protocol · NBM from midnight · Blood bank alert — ≥2 units crossmatched',
+  pad_bypass:'Antiplatelets — discuss cessation 5–7 days · Statins — CONTINUE · Heparin bridging if anticoagulated · Enoxaparin 40mg SC post-op · Cefazolin 1g + Metronidazole · Contrast nephropathy protocol if CKD · Mark GSV with duplex pre-op · NBM from midnight',
+  proctology:'Inj. Cefazolin 1g IV — single pre-op dose · TED stockings · NBM from midnight · Bowel prep per surgeon preference · Wound care plan documented · Day surgery protocol if ASA I–II · LA infiltration plan if applicable',
+  other:'NBM from midnight · Inj. Cefazolin 1g IV — 30 min pre-incision · TED stockings · Anticoagulant / antiplatelet review · Document specific drug protocol per operating surgeon instructions',
 };
+
+var PROC_LABELS={gall_stone:'Gall Stone Disease',hernia:'Hernia Surgery',appendicectomy:'Appendicectomy',breast_surgery:'Breast Surgery',thyroid_surgery:'Thyroid Surgery',adrenal_surgery:'Adrenal Surgery',gi_surgery:'Gastrointestinal Surgery',whipple:"Whipple's / Pancreaticoduodenectomy",pad_bypass:'Bypass Surgery — PAD',proctology:'Proctology',other:'Other'};
+var CLR_OPTS=['PAC — Pre-anaesthetic clearance','Cardiology clearance','Pulmonology / Respiratory clearance','Endocrinology clearance','Nephrology clearance','Hepatology / HPB clearance','ENT — Fibreoptic laryngoscopy / vocal cord assessment','Oncology / Medical oncology clearance','Radiation Oncology review','Vascular surgery / IR review','Diabetology clearance','Neurology clearance','Haematology clearance','Nutritional / Dietitian assessment','Stoma nurse / Colorectal nurse review','Physiotherapy assessment','Plastic surgery / Reconstruction review','Gastroenterology','Colorectal / Proctology review','Other specialist clearance'];
+var EXT_ALWAYS=[{lbl:'PAC completed',ph:'Pre-anaesthetic assessment obtained'},{lbl:'Consent obtained',ph:'Informed surgical consent signed and filed'},{lbl:'Drugs reviewed',ph:'Anticoagulant / antiplatelet cessation plan documented'},{lbl:'NBM instructions',ph:'Patient and nursing staff instructed'}];
+var EXT_PROC={spirometer:{lbl:'Incentive spirometer',ph:'Demonstrated to patient pre-op',procs:'breast_surgery,gi_surgery,whipple,pad_bypass'},abd_binder:{lbl:'Abdominal binder',ph:'Sized and issued — note size',procs:'hernia,gall_stone,gi_surgery,whipple,proctology'},blood_crossmatch:{lbl:'Blood crossmatch',ph:'Units ordered — confirmed with blood bank',procs:'breast_surgery,gi_surgery,whipple,pad_bypass,adrenal_surgery'},stoma_marked:{lbl:'Stoma site marked',ph:'Marked by stoma nurse — note site',procs:'gi_surgery,whipple'},ionm:{lbl:'IONM requested',ph:'Intraoperative nerve monitoring — notify theatre',procs:'thyroid_surgery'},gsv_marked:{lbl:'GSV marked (duplex)',ph:'Great saphenous vein marked pre-op by vascular team',procs:'pad_bypass'},bowel_prep:{lbl:'Bowel prep given',ph:'PEG / oral antibiotic protocol administered',procs:'gi_surgery,whipple,proctology'},stress_dosing:{lbl:'Stress dosing plan',ph:'Hydrocortisone protocol documented',procs:'adrenal_surgery'},ca_gluconate:{lbl:'Ca Gluconate on standby',ph:'10ml (10%) drawn up and at bedside',procs:'thyroid_surgery,adrenal_surgery'},alpha_block:{lbl:'Alpha-blockade confirmed',ph:'Phenoxybenzamine ≥10 days pre-op — confirm with endo',procs:'adrenal_surgery'},wire_loc:{lbl:'Wire / seed localisation',ph:'Confirm scheduling with radiology before theatre start',procs:'breast_surgery'},iopth_lab:{lbl:'IOPTH lab notified',ph:'Biochemistry lab notified ≥24h in advance',procs:'thyroid_surgery'},eras_drink:{lbl:'ERAS carb drink given',ph:'400ml carbohydrate loading drink 2h pre-op',procs:'breast_surgery,gi_surgery,whipple'},ted_stockings:{lbl:'TED stockings applied',ph:'Size checked and applied',procs:'hernia,gall_stone,appendicectomy,breast_surgery,thyroid_surgery,gi_surgery,whipple,pad_bypass,proctology,other,adrenal_surgery'},antiplatelet_cess:{lbl:'Antiplatelet cessation',ph:'Aspirin / Clopidogrel stopped — date noted',procs:'pad_bypass,gi_surgery,whipple'},nutritional_supp:{lbl:'Nutritional supplements',ph:'Oral supplements started — note brand / duration',procs:'gi_surgery,whipple'}};
 
 /* ═══ WARNINGS ═══════════════════════════════════════════════════════ */
 var WARN_ICONS={nbm:'💊',dvt:'🩺',blood:'🩸',bowel:'⚠',contrast:'⚗',age:'⚡'};
 var WARNINGS={
-  gall_stone:[
-    {type:'nbm',  msg:'NBM from midnight. Clear fluids permitted up to 2h pre-op per ERAS — confirm with anaesthetist. If ERCP planned same admission, coordinate NBM timing.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: TED stockings mandatory. Add Enoxaparin 40mg SC if additional VTE risk factors (obesity, prior DVT, prolonged operative time).'},
-  ],
-  hernia:[
-    {type:'nbm',  msg:'NBM from midnight. Clear fluids up to 2h pre-op. Day surgery pathway appropriate for most ASA I–II patients.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: TED stockings. Enoxaparin 40mg SC only if VTE risk factors identified on pre-op assessment.'},
-  ],
-  appendicectomy:[
-    {type:'nbm',  msg:'NBM from midnight (or ≥6h solids / ≥2h clear fluids for elective). For emergency — confirm NBM timing with anaesthetist; rapid sequence induction may be required.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: TED stockings + Enoxaparin 40mg SC post-op (first dose 6–12h post-surgery). Assess VTE risk score (Caprini). High-risk: extended prophylaxis.'},
-  ],
-  breast_surgery:[
-    {type:'nbm',  msg:'NBM from midnight. ERAS breast protocol — carbohydrate loading drink (e.g. Preload 400ml) 2h pre-op if no DM/GI dysmotility. Impalpable lesions: wire / radioactive seed localisation — confirm scheduling with radiology BEFORE theatre.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: Enoxaparin 40mg SC + TED stockings. Breast cancer: moderate-high VTE risk. Extended prophylaxis if axillary node dissection or reconstruction planned.'},
-    {type:'blood',msg:'Blood product threshold: Crossmatch 1–2 units pRBC. Transfuse if Hb <8 g/dL pre-op or intra-op. Alert blood bank if simultaneous reconstruction planned (increased operative time).'},
-  ],
-  thyroid_surgery:[
-    {type:'nbm',  msg:'NBM from midnight. IONM equipment — confirm booking with theatre coordinator. Ca Gluconate 10ml (10%) drawn up and at bedside pre-op. IOPTH: notify biochemistry lab ≥24h in advance.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: TED stockings. Enoxaparin 40mg SC post-op. Standard moderate-duration surgery risk. Sequential compression devices intra-op if prolonged.'},
-    {type:'blood',msg:'Hungry Bone Syndrome Alert (parathyroid): Aggressive IV calcium replacement post-op if parathyroid resection performed. Monitor corrected Ca q4h × 24h. Ca Gluconate infusion on standby. Pre-op Ca + Vitamin D loading recommended.'},
-  ],
-  adrenal_surgery:[
-    {type:'nbm',  msg:'NBM from midnight. Bilateral adrenalectomy: stress dosing — Hydrocortisone 100mg IV at induction, then 50mg q8h × 24h, then taper. Ca Gluconate on standby for bilateral case.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: TED stockings + Enoxaparin 40mg SC post-op. Laparoscopic: high intra-abdominal pressure — sequential compression devices intra-op mandatory.'},
-    {type:'blood',msg:'Phaeochromocytoma haemodynamic alert: Anticipate BP swings — vasopressors AND anti-hypertensives (phentolamine / nitroprusside) prepared in theatre. Crossmatch 2 units pRBC. ICU bed reserved post-op.'},
-    {type:'contrast',msg:'Post-op Electrolyte Alert: Adrenal cortex removal → Addisonian crisis risk. Electrolyte monitoring (Na/K/Cl) q4h × 24h post-op. Contrast nephropathy protocol if eGFR <60 pre-op.'},
-  ],
-  gi_surgery:[
-    {type:'nbm',  msg:'NBM from midnight. ERAS protocol: carbohydrate loading drink 2h pre-op — contraindicated in DM and GI dysmotility. Confirm epidural analgesia plan with anaesthetist. Stoma site marked pre-operatively by stoma nurse.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: Enoxaparin 40mg SC + TED stockings. Colorectal cancer: HIGH VTE risk — EXTENDED 28-day post-op prophylaxis recommended (NICE/ACCP). Sequential compression devices intra-operatively.'},
-    {type:'blood',msg:'Blood product threshold: Crossmatch 2 units pRBC. Transfuse if Hb <8 g/dL or anticipated major intra-op blood loss. Cell saver if non-oncological case. Alert blood bank for major colorectal resection.'},
-    {type:'bowel',msg:'Bowel Prep: PEG-based preparation (e.g. Moviprep / Klean-Prep) evening before. Ensure IV access and hydration. Monitor electrolytes post-prep. Confirm oral antibiotic prophylaxis with operating surgeon per ERAS protocol.'},
-  ],
-  whipple:[
-    {type:'nbm',  msg:'NBM from midnight. ERAS pancreatic protocol: carbohydrate loading drink 2h pre-op if no DM. Confirm epidural / PCA analgesia plan. Patient to receive full ERAS information pre-operatively.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: Enoxaparin 40mg SC + TED + sequential compression device intra-op. HIGH VTE risk (major HPB oncological surgery) — EXTENDED 28-day prophylaxis required. Confirm weight-based dosing.'},
-    {type:'blood',msg:'Blood product threshold: Crossmatch ≥2 units pRBC. FFP if INR >1.5. Platelets if <80×10⁹/L. ALERT BLOOD BANK — major HPB case. Cell saver recommended. Transfuse if Hb <8 g/dL pre-op.'},
-    {type:'bowel',msg:'Bowel Prep: PEG-based preparation evening before. Confirm mechanical ± oral antibiotic prep with operating surgeon. Ensure IV access and hydration. Monitor electrolytes post-prep.'},
-    {type:'contrast',msg:'Contrast Nephropathy Protocol: eGFR check MANDATORY. eGFR <60 — IV saline 1 ml/kg/h × 6h pre and post contrast. Withhold Metformin 48h pre-contrast. Nephrology consult if CKD Stage ≥3.'},
-  ],
-  pad_bypass:[
-    {type:'nbm',  msg:'NBM from midnight. Mark GSV with duplex pre-op (day before surgery). Confirm vein conduit vs prosthetic graft with surgeon. Heparin systemic anticoagulation intra-op — confirm protocol.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: Systemic heparinisation intra-op (standard for bypass). Post-op antiplatelet therapy — confirm cessation and bridging plan. TED stockings to upper limbs if bilateral lower limb surgery.'},
-    {type:'blood',msg:'Blood product threshold: Crossmatch ≥2 units pRBC. Cell saver for aortic / complex bypass. APTT / TEG monitoring. FFP for coagulopathy. Platelet threshold: <80×10⁹/L for major vascular.'},
-    {type:'contrast',msg:'Contrast Nephropathy Protocol: eGFR MANDATORY. eGFR <60 — IV saline 1 ml/kg/h × 6h pre and post contrast. Withhold Metformin 48h pre and post contrast. Nephrology consult if CKD Stage ≥3 or eGFR <30.'},
-  ],
-  proctology:[
-    {type:'nbm',  msg:'NBM from midnight (GA / spinal). For LA with sedation: 4h prior. Confirm anaesthetic plan. Day surgery pathway appropriate for ASA I–II patients. Bowel prep per surgeon preference.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: TED stockings. Low VTE risk for minor procedure. Enoxaparin 40mg SC only if additional VTE risk factors present (obesity, prior DVT, prolonged operative time).'},
-  ],
-  other:[
-    {type:'nbm',  msg:'NBM from midnight. Confirm fasting instructions with anaesthetist based on planned anaesthetic technique.'},
-    {type:'dvt',  msg:'DVT Prophylaxis: Assess VTE risk individually. TED stockings as minimum. Add Enoxaparin 40mg SC per risk stratification (Caprini score).'},
-  ],
-};
-
-/* ═══ MISC LISTS ═════════════════════════════════════════════════════ */
-var PROC_LABELS={
-  gall_stone:'Gall Stone Disease',
-  hernia:'Hernia Surgery',
-  appendicectomy:'Appendicectomy',
-  breast_surgery:'Breast Surgery',
-  thyroid_surgery:'Thyroid Surgery',
-  adrenal_surgery:'Adrenal Surgery',
-  gi_surgery:'Gastrointestinal Surgery',
-  whipple:"Whipple's / Pancreaticoduodenectomy",
-  pad_bypass:'Bypass Surgery — PAD',
-  proctology:'Proctology',
-  other:'Other',
-};
-
-var CLR_OPTS=['PAC — Pre-anaesthetic clearance','Cardiology clearance','Pulmonology / Respiratory clearance','Endocrinology clearance','Nephrology clearance','Hepatology / HPB clearance','ENT — Fibreoptic laryngoscopy / vocal cord assessment','Oncology / Medical oncology clearance','Radiation Oncology review','Vascular surgery / IR review','Diabetology clearance','Neurology clearance','Haematology clearance','Nutritional / Dietitian assessment','Stoma nurse / Colorectal nurse review','Physiotherapy assessment','Plastic surgery / Reconstruction review','Gastroenterology','Colorectal / Proctology review','Other specialist clearance'];
-
-// ALL = show for every procedure
-var EXT_ALWAYS=[
-  {lbl:'PAC completed',      ph:'Pre-anaesthetic assessment obtained'},
-  {lbl:'Consent obtained',   ph:'Informed surgical consent signed and filed'},
-  {lbl:'Drugs reviewed',     ph:'Anticoagulant / antiplatelet cessation plan documented'},
-  {lbl:'NBM instructions',   ph:'Patient and nursing staff instructed'},
-];
-// Procedure-specific extras — shown only for listed procs
-var EXT_PROC={
-  spirometer:      {lbl:'Incentive spirometer',      ph:'Demonstrated to patient pre-op',                         procs:'breast_surgery,gi_surgery,whipple,pad_bypass'},
-  abd_binder:      {lbl:'Abdominal binder',           ph:'Sized and issued — note size',                           procs:'hernia,gall_stone,gi_surgery,whipple,proctology'},
-  blood_crossmatch:{lbl:'Blood crossmatch',           ph:'Units ordered — confirmed with blood bank',              procs:'breast_surgery,gi_surgery,whipple,pad_bypass,adrenal_surgery'},
-  stoma_marked:    {lbl:'Stoma site marked',          ph:'Marked by stoma nurse — note site',                      procs:'gi_surgery,whipple'},
-  ionm:            {lbl:'IONM requested',             ph:'Intraoperative nerve monitoring — notify theatre',       procs:'thyroid_surgery'},
-  gsv_marked:      {lbl:'GSV marked (duplex)',         ph:'Great saphenous vein marked pre-op by vascular team',   procs:'pad_bypass'},
-  bowel_prep:      {lbl:'Bowel prep given',           ph:'PEG / oral antibiotic protocol administered',            procs:'gi_surgery,whipple,proctology'},
-  stress_dosing:   {lbl:'Stress dosing plan',         ph:'Hydrocortisone protocol documented',                     procs:'adrenal_surgery'},
-  ca_gluconate:    {lbl:'Ca Gluconate on standby',    ph:'10ml (10%) drawn up and at bedside',                     procs:'thyroid_surgery,adrenal_surgery'},
-  alpha_block:     {lbl:'Alpha-blockade confirmed',   ph:'Phenoxybenzamine ≥10 days pre-op — confirm with endo',  procs:'adrenal_surgery'},
-  wire_loc:        {lbl:'Wire / seed localisation',   ph:'Confirm scheduling with radiology before theatre start', procs:'breast_surgery'},
-  iopth_lab:       {lbl:'IOPTH lab notified',         ph:'Biochemistry lab notified ≥24h in advance',              procs:'thyroid_surgery'},
-  eras_drink:      {lbl:'ERAS carb drink given',      ph:'400ml carbohydrate loading drink 2h pre-op',             procs:'breast_surgery,gi_surgery,whipple'},
-  ted_stockings:   {lbl:'TED stockings applied',      ph:'Size checked and applied',                               procs:'hernia,gall_stone,appendicectomy,breast_surgery,thyroid_surgery,gi_surgery,whipple,pad_bypass,proctology,other,adrenal_surgery'},
-  antiplatelet_cess:{lbl:'Antiplatelet cessation',    ph:'Aspirin / Clopidogrel stopped — date noted',             procs:'pad_bypass,gi_surgery,whipple'},
-  nutritional_supp:{lbl:'Nutritional supplements',    ph:'Oral supplements started — note brand / duration',       procs:'gi_surgery,whipple'},
+  gall_stone:[{type:'nbm',msg:'NBM from midnight. Clear fluids permitted up to 2h pre-op per ERAS — confirm with anaesthetist. If ERCP planned same admission, coordinate NBM timing.'},{type:'dvt',msg:'DVT Prophylaxis: TED stockings mandatory. Add Enoxaparin 40mg SC if additional VTE risk factors (obesity, prior DVT, prolonged operative time).'}],
+  hernia:[{type:'nbm',msg:'NBM from midnight. Clear fluids up to 2h pre-op. Day surgery pathway appropriate for most ASA I–II patients.'},{type:'dvt',msg:'DVT Prophylaxis: TED stockings. Enoxaparin 40mg SC only if VTE risk factors identified on pre-op assessment.'}],
+  appendicectomy:[{type:'nbm',msg:'NBM from midnight (or ≥6h solids / ≥2h clear fluids for elective). For emergency — confirm NBM timing with anaesthetist; rapid sequence induction may be required.'},{type:'dvt',msg:'DVT Prophylaxis: TED stockings + Enoxaparin 40mg SC post-op (first dose 6–12h post-surgery). Assess VTE risk score (Caprini). High-risk: extended prophylaxis.'}],
+  breast_surgery:[{type:'nbm',msg:'NBM from midnight. ERAS breast protocol — carbohydrate loading drink (e.g. Preload 400ml) 2h pre-op if no DM/GI dysmotility. Impalpable lesions: wire / radioactive seed localisation — confirm scheduling with radiology BEFORE theatre.'},{type:'dvt',msg:'DVT Prophylaxis: Enoxaparin 40mg SC + TED stockings. Breast cancer: moderate-high VTE risk. Extended prophylaxis if axillary node dissection or reconstruction planned.'},{type:'blood',msg:'Blood product threshold: Crossmatch 1–2 units pRBC. Transfuse if Hb <8 g/dL pre-op or intra-op. Alert blood bank if simultaneous reconstruction planned (increased operative time).'}],
+  thyroid_surgery:[{type:'nbm',msg:'NBM from midnight. IONM equipment — confirm booking with theatre coordinator. Ca Gluconate 10ml (10%) drawn up and at bedside pre-op. IOPTH: notify biochemistry lab ≥24h in advance.'},{type:'dvt',msg:'DVT Prophylaxis: TED stockings. Enoxaparin 40mg SC post-op. Standard moderate-duration surgery risk. Sequential compression devices intra-op if prolonged.'},{type:'blood',msg:'Hungry Bone Syndrome Alert (parathyroid): Aggressive IV calcium replacement post-op if parathyroid resection performed. Monitor corrected Ca q4h × 24h. Ca Gluconate infusion on standby. Pre-op Ca + Vitamin D loading recommended.'}],
+  adrenal_surgery:[{type:'nbm',msg:'NBM from midnight. Bilateral adrenalectomy: stress dosing — Hydrocortisone 100mg IV at induction, then 50mg q8h × 24h, then taper. Ca Gluconate on standby for bilateral case.'},{type:'dvt',msg:'DVT Prophylaxis: TED stockings + Enoxaparin 40mg SC post-op. Laparoscopic: high intra-abdominal pressure — sequential compression devices intra-op mandatory.'},{type:'blood',msg:'Phaeochromocytoma haemodynamic alert: Anticipate BP swings — vasopressors AND anti-hypertensives (phentolamine / nitroprusside) prepared in theatre. Crossmatch 2 units pRBC. ICU bed reserved post-op.'},{type:'contrast',msg:'Post-op Electrolyte Alert: Adrenal cortex removal → Addisonian crisis risk. Electrolyte monitoring (Na/K/Cl) q4h × 24h post-op. Contrast nephropathy protocol if eGFR <60 pre-op.'}],
+  gi_surgery:[{type:'nbm',msg:'NBM from midnight. ERAS protocol: carbohydrate loading drink 2h pre-op — contraindicated in DM and GI dysmotility. Confirm epidural analgesia plan with anaesthetist. Stoma site marked pre-operatively by stoma nurse.'},{type:'dvt',msg:'DVT Prophylaxis: Enoxaparin 40mg SC + TED stockings. Colorectal cancer: HIGH VTE risk — EXTENDED 28-day post-op prophylaxis recommended (NICE/ACCP). Sequential compression devices intra-operatively.'},{type:'blood',msg:'Blood product threshold: Crossmatch 2 units pRBC. Transfuse if Hb <8 g/dL or anticipated major intra-op blood loss. Cell saver if non-oncological case. Alert blood bank for major colorectal resection.'},{type:'bowel',msg:'Bowel Prep: PEG-based preparation (e.g. Moviprep / Klean-Prep) evening before. Ensure IV access and hydration. Monitor electrolytes post-prep. Confirm oral antibiotic prophylaxis with operating surgeon per ERAS protocol.'}],
+  whipple:[{type:'nbm',msg:'NBM from midnight. ERAS pancreatic protocol: carbohydrate loading drink 2h pre-op if no DM. Confirm epidural / PCA analgesia plan. Patient to receive full ERAS information pre-operatively.'},{type:'dvt',msg:'DVT Prophylaxis: Enoxaparin 40mg SC + TED + sequential compression device intra-op. HIGH VTE risk (major HPB oncological surgery) — EXTENDED 28-day prophylaxis required. Confirm weight-based dosing.'},{type:'blood',msg:'Blood product threshold: Crossmatch ≥2 units pRBC. FFP if INR >1.5. Platelets if <80×10⁹/L. ALERT BLOOD BANK — major HPB case. Cell saver recommended. Transfuse if Hb <8 g/dL pre-op.'},{type:'bowel',msg:'Bowel Prep: PEG-based preparation evening before. Confirm mechanical ± oral antibiotic prep with operating surgeon. Ensure IV access and hydration. Monitor electrolytes post-prep.'},{type:'contrast',msg:'Contrast Nephropathy Protocol: eGFR check MANDATORY. eGFR <60 — IV saline 1 ml/kg/h × 6h pre and post contrast. Withhold Metformin 48h pre-contrast. Nephrology consult if CKD Stage ≥3.'}],
+  pad_bypass:[{type:'nbm',msg:'NBM from midnight. Mark GSV with duplex pre-op (day before surgery). Confirm vein conduit vs prosthetic graft with surgeon. Heparin systemic anticoagulation intra-op — confirm protocol.'},{type:'dvt',msg:'DVT Prophylaxis: Systemic heparinisation intra-op (standard for bypass). Post-op antiplatelet therapy — confirm cessation and bridging plan. TED stockings to upper limbs if bilateral lower limb surgery.'},{type:'blood',msg:'Blood product threshold: Crossmatch ≥2 units pRBC. Cell saver for aortic / complex bypass. APTT / TEG monitoring. FFP for coagulopathy. Platelet threshold: <80×10⁹/L for major vascular.'},{type:'contrast',msg:'Contrast Nephropathy Protocol: eGFR MANDATORY. eGFR <60 — IV saline 1 ml/kg/h × 6h pre and post contrast. Withhold Metformin 48h pre and post contrast. Nephrology consult if CKD Stage ≥3 or eGFR <30.'}],
+  proctology:[{type:'nbm',msg:'NBM from midnight (GA / spinal). For LA with sedation: 4h prior. Confirm anaesthetic plan. Day surgery pathway appropriate for ASA I–II patients. Bowel prep per surgeon preference.'},{type:'dvt',msg:'DVT Prophylaxis: TED stockings. Low VTE risk for minor procedure. Enoxaparin 40mg SC only if additional VTE risk factors present (obesity, prior DVT, prolonged operative time).'}],
+  other:[{type:'nbm',msg:'NBM from midnight. Confirm fasting instructions with anaesthetist based on planned anaesthetic technique.'},{type:'dvt',msg:'DVT Prophylaxis: Assess VTE risk individually. TED stockings as minimum. Add Enoxaparin 40mg SC per risk stratification (Caprini score).'}],
 };
 
 /* ═══ HELPERS ════════════════════════════════════════════════════════ */
 function getRowCls(item){
   if(item.age&&over50()) return 'age-row';
   if(item.req==='ALL') return 'req-row';
-  if(!curProc) return '';
+  if(!curProc) return 'na-row';
   var r=item.req?item.req.split(','):[], c=item.cond?item.cond.split(','):[];
   if(r.indexOf(curProc)!==-1) return 'req-row';
   if(c.indexOf(curProc)!==-1) return 'cond-row';
@@ -850,79 +773,211 @@ function getImportance(item){
   if(c.indexOf(curProc)!==-1) return 'conditional';
   return 'optional';
 }
-function saveInvState(cid){
-  document.getElementById(cid).querySelectorAll('.inv-row').forEach(function(row){
-    var id=row.getAttribute('data-id'); if(!id) return;
-    if(!INV_STATE[id]) INV_STATE[id]={};
-    var chk=row.querySelector('input[type=checkbox]'), val=row.querySelector('.inv-val'), dt=row.querySelector('.inv-date');
-    if(chk) INV_STATE[id].done=chk.checked;
-    if(val) INV_STATE[id].value=val.value;
-    if(dt)  INV_STATE[id].date=dt.value;
+
+/* ═══ IMAGE PREVIEW RENDER ═══════════════════════════════════════════ */
+function renderImgPreview(previewEl, id){
+  previewEl.innerHTML='';
+  var f=INV_IMGS[id]; if(!f) return;
+  var wrap=document.createElement('div'); wrap.className='img-preview-wrap';
+  if(f.type==='application/pdf'){
+    var el=document.createElement('div'); el.className='pdf-thumb-item';
+    el.innerHTML='📄 <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px">'+f.name+'</span>';
+    var del=document.createElement('button'); del.className='pdf-thumb-del'; del.textContent='✕'; del.type='button';
+    del.addEventListener('click',function(){ delete INV_IMGS[id]; renderImgPreview(previewEl,id); });
+    el.appendChild(del); wrap.appendChild(el);
+  } else {
+    var el=document.createElement('div'); el.className='img-thumb-item';
+    var img=document.createElement('img'); img.src=URL.createObjectURL(f); img.alt='Investigation image';
+    var lbl=document.createElement('div'); lbl.className='img-thumb-label'; lbl.textContent=f.name||'';
+    var del=document.createElement('button'); del.className='img-thumb-del'; del.textContent='✕'; del.type='button';
+    del.addEventListener('click',function(){ delete INV_IMGS[id]; renderImgPreview(previewEl,id); });
+    el.appendChild(img); el.appendChild(lbl); el.appendChild(del); wrap.appendChild(el);
+  }
+  previewEl.appendChild(wrap);
+}
+/* Convert a File to base64 string (returns Promise) */
+function fileToB64(f){
+  return new Promise(function(resolve,reject){
+    var reader=new FileReader();
+    reader.onload=function(e){ resolve(e.target.result.split(',')[1]); };
+    reader.onerror=reject;
+    reader.readAsDataURL(f);
   });
 }
-function buildSection(items,cid){
-  var c=document.getElementById(cid); c.innerHTML=''; var sn=1;
-  var isStd=(cid==='std-body');
-  var lastGroup=null;
-  items.forEach(function(item){
-    var cls=getRowCls(item), dot=getDot(item);
-    if(item.group && item.group!==lastGroup){
-      var gw=document.createElement('div');
-      gw.style.cssText='background:var(--slate-100);padding:5px 10px;font-size:9.5px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);border-top:'+(lastGroup?'1px solid var(--slate-200)':'none');
-      gw.textContent=item.group;
-      c.appendChild(gw);
-      lastGroup=item.group;
+function attachImgHandlers(fileInput, capInput, previewEl, id){
+  function handleFile(f){
+    if(!f) return;
+    var MAX=15*1024*1024;
+    if(f.size>MAX){ alert('"'+f.name+'" exceeds the 15 MB limit.'); return; }
+    var allowed=['image/jpeg','image/png','image/gif','image/webp','image/heic','image/heif','application/pdf'];
+    if(allowed.indexOf(f.type)===-1 && f.type.indexOf('image/')!==0){ alert('Unsupported file type: '+f.type); return; }
+    INV_IMGS[id]=f; /* store raw File object */
+    renderImgPreview(previewEl,id);
+  }
+  fileInput.addEventListener('change',function(){ handleFile(this.files[0]); this.value=''; });
+  capInput.addEventListener('change',function(){ handleFile(this.files[0]); this.value=''; });
+}
+
+/* ═══ SAVE INV STATE ═════════════════════════════════════════════════ */
+function saveInvState(cid){
+  document.getElementById(cid).querySelectorAll('[data-id]').forEach(function(el){
+    var id=el.getAttribute('data-id'); if(!id) return;
+    if(!INV_STATE[id]) INV_STATE[id]={};
+    var chk=el.querySelector('input[type=checkbox]');
+    var val=el.querySelector('.inv-val');
+    var dt=el.querySelector('.inv-date');
+    if(chk) INV_STATE[id].done=chk.checked;
+    if(val) INV_STATE[id].value=val.value;
+    if(dt) INV_STATE[id].date=dt.value;
+  });
+}
+
+/* ═══ AUTO-CHECK HELPER ══════════════════════════════════════════════
+   Wires an input/textarea so typing auto-checks the sibling checkbox,
+   and clearing the field auto-unchecks it.                            */
+function wireAutoCheck(valEl, chkEl){
+  valEl.addEventListener('input', function(){
+    var hasValue = this.value.trim() !== '';
+    if(hasValue && !chkEl.checked){
+      chkEl.checked = true;
+      /* Brief green flash on the checkbox to confirm */
+      chkEl.style.outline = '2px solid var(--teal)';
+      setTimeout(function(){ chkEl.style.outline = ''; }, 600);
+    } else if(!hasValue && chkEl.checked){
+      chkEl.checked = false;
     }
+  });
+}
+
+/* ═══ BUILD RADIO SECTION ════════════════════════════════════════════ */
+function buildRadioSection(items, cid){
+  var c=document.getElementById(cid); c.innerHTML=''; var sn=1;
+  var reqItems=[], naItems=[];
+  items.forEach(function(item){ if(getRowCls(item)==='na-row') naItems.push(item); else reqItems.push(item); });
+
+  function makeRadioItem(item){
+    var cls=getRowCls(item), dot=getDot(item), saved=INV_STATE[item.id]||{};
+    var isNa=(cls==='na-row'), num=isNa?'':sn++;
     var tag=item.age&&over50()?'<span class="tag tag-age">age&gt;50</span>':'';
-    var saved=INV_STATE[item.id]||{};
-    var row=document.createElement('div');
-    // STD rows: 4-col grid (no date), others: 5-col with date
-    var gridCols=isStd?'26px 18px 1fr 1fr':'26px 18px 1fr 130px 100px';
-    row.className='inv-row '+cls;
-    row.style.gridTemplateColumns=gridCols;
-    row.setAttribute('data-id',item.id);
-    var num=(cls==='na-row')?'':sn++;
+    var wrap=document.createElement('div'); wrap.className='radio-item '+cls; wrap.setAttribute('data-id',item.id);
+    var hasImg=INV_IMGS[item.id];
+    wrap.innerHTML='<div class="radio-hdr">'+
+      '<div class="sno">'+num+'</div>'+
+      '<input type="checkbox" style="accent-color:var(--teal);width:14px;height:14px;cursor:pointer;flex-shrink:0"'+(saved.done?' checked':'')+'>'+
+      '<div class="inv-name"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:'+dot+';margin-right:6px;vertical-align:middle;flex-shrink:0"></span>'+item.name+tag+'<div class="inv-sub">'+item.sub+'</div></div>'+
+      '<input type="date" class="inv-date" value="'+(saved.date||'')+'">'+
+    '</div>'+
+    '<div class="radio-body">'+
+      '<textarea class="radio-ta inv-val" placeholder="Findings / Report — describe imaging findings, measurements, impression and clinical correlation…" maxlength="3000">'+(saved.value||'')+'</textarea>'+
+      '<div class="inv-img-zone">'+
+        '<div class="inv-img-btns">'+
+          '<button type="button" class="btn-iup">📎 Upload Image</button>'+
+          '<button type="button" class="btn-icap">📷 Capture</button>'+
+        '</div>'+
+        '<div class="inv-img-preview"></div>'+
+      '</div>'+
+    '</div>';
+    var fileIn=document.createElement('input'); fileIn.type='file'; fileIn.accept='image/*,application/pdf'; fileIn.style.display='none'; wrap.appendChild(fileIn);
+    var capIn=document.createElement('input'); capIn.type='file'; capIn.accept='image/*'; capIn.setAttribute('capture','environment'); capIn.style.display='none'; wrap.appendChild(capIn);
+    var prevEl=wrap.querySelector('.inv-img-preview');
+    wrap.querySelector('.btn-iup').addEventListener('click',function(){ fileIn.click(); });
+    wrap.querySelector('.btn-icap').addEventListener('click',function(){ capIn.click(); });
+    attachImgHandlers(fileIn,capIn,prevEl,item.id);
+    if(INV_IMGS[item.id]) renderImgPreview(prevEl,item.id);
+    /* Auto-check when findings typed */
+    wireAutoCheck(wrap.querySelector('.inv-val'), wrap.querySelector('input[type=checkbox]'));
+    return wrap;
+  }
+
+  reqItems.forEach(function(item){ c.appendChild(makeRadioItem(item)); });
+
+  if(naItems.length>0){
+    var toggle=document.createElement('button'); toggle.type='button'; toggle.className='nr-toggle';
+    toggle.innerHTML='<span class="nr-arrow">▶</span> Not Required Investigations <span class="nr-count">('+naItems.length+')</span>';
+    var body=document.createElement('div'); body.className='nr-body'; body.style.display='none';
+    naItems.forEach(function(item){ body.appendChild(makeRadioItem(item)); });
+    toggle.addEventListener('click',function(){
+      var open=body.style.display!=='none';
+      body.style.display=open?'none':'block';
+      toggle.classList.toggle('open',!open);
+    });
+    c.appendChild(toggle); c.appendChild(body);
+  }
+}
+
+/* ═══ BUILD STD / BLOOD SECTION ══════════════════════════════════════ */
+function buildFlatSection(items, cid, isStd){
+  var c=document.getElementById(cid); c.innerHTML=''; var sn=1;
+  var lastGroup=null;
+  var reqItems=[], naItems=[];
+  items.forEach(function(item){ if(getRowCls(item)==='na-row') naItems.push(item); else reqItems.push(item); });
+  var allReqGroups={};
+  reqItems.forEach(function(item){ if(item.group){ if(!allReqGroups[item.group]) allReqGroups[item.group]=[]; allReqGroups[item.group].push(item); } });
+
+  function makeRow(item){
+    var cls=getRowCls(item), dot=getDot(item), saved=INV_STATE[item.id]||{};
+    var isNa=(cls==='na-row'), num=isNa?'':sn++;
+    var tag=item.age&&over50()?'<span class="tag tag-age">age&gt;50</span>':'';
+    var gridCols=isStd?'26px 18px 1fr 1fr 80px':'26px 18px 1fr 100px 90px 80px';
     var dateCell=isStd?'':'<input type="date" class="inv-date" value="'+(saved.date||'')+'">';
+    var wrap=document.createElement('div'); wrap.className='inv-item-wrap';
+    var row=document.createElement('div'); row.className='inv-row '+cls; row.style.gridTemplateColumns=gridCols; row.setAttribute('data-id',item.id);
     row.innerHTML='<div class="sno">'+num+'</div>'+
       '<input type="checkbox" style="accent-color:var(--teal);width:14px;height:14px;cursor:pointer;flex-shrink:0"'+(saved.done?' checked':'')+'>'+
       '<div class="inv-name"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:'+dot+';margin-right:6px;vertical-align:middle;flex-shrink:0"></span>'+item.name+tag+'<div class="inv-sub">'+item.sub+'</div></div>'+
       '<input class="inv-val" placeholder="Value / result" value="'+(saved.value||'')+'">'+
-      dateCell;
-    c.appendChild(row);
+      dateCell+
+      '<div class="inv-img-mini">'+
+        '<button type="button" class="btn-mi" title="Upload report/image">📎</button>'+
+        '<button type="button" class="btn-mi" title="Capture image">📷</button>'+
+      '</div>';
+    var strip=document.createElement('div'); strip.className='inv-img-strip'; strip.style.display='none';
+    var fileIn=document.createElement('input'); fileIn.type='file'; fileIn.accept='image/*,application/pdf'; fileIn.style.display='none';
+    var capIn=document.createElement('input'); capIn.type='file'; capIn.accept='image/*'; capIn.setAttribute('capture','environment'); capIn.style.display='none';
+    var prev=document.createElement('div'); prev.className='img-preview-wrap';
+    strip.appendChild(fileIn); strip.appendChild(capIn); strip.appendChild(prev);
+    var btns=row.querySelectorAll('.btn-mi');
+    btns[0].addEventListener('click',function(){ strip.style.display='block'; fileIn.click(); });
+    btns[1].addEventListener('click',function(){ strip.style.display='block'; capIn.click(); });
+    attachImgHandlers(fileIn,capIn,prev,item.id);
+    if(INV_IMGS[item.id]){ strip.style.display='block'; renderImgPreview(prev,item.id); }
+    /* Auto-check when value typed */
+    wireAutoCheck(row.querySelector('.inv-val'), row.querySelector('input[type=checkbox]'));
+    wrap.appendChild(row); wrap.appendChild(strip);
+    return wrap;
+  }
+
+  // Render req items with group headers
+  reqItems.forEach(function(item){
+    if(item.group && item.group!==lastGroup){
+      var gw=document.createElement('div'); gw.className='inv-group-hdr';
+      if(lastGroup) gw.style.borderTop='1px solid var(--slate-200)';
+      gw.textContent=item.group;
+      c.appendChild(gw); lastGroup=item.group;
+    }
+    c.appendChild(makeRow(item));
   });
+
+  if(naItems.length>0){
+    var toggle=document.createElement('button'); toggle.type='button'; toggle.className='nr-toggle';
+    toggle.innerHTML='<span class="nr-arrow">▶</span> Not Required Investigations <span class="nr-count">('+naItems.length+')</span>';
+    var body=document.createElement('div'); body.className='nr-body'; body.style.display='none';
+    naItems.forEach(function(item){ body.appendChild(makeRow(item)); });
+    toggle.addEventListener('click',function(){
+      var open=body.style.display!=='none';
+      body.style.display=open?'none':'block';
+      toggle.classList.toggle('open',!open);
+    });
+    c.appendChild(toggle); c.appendChild(body);
+  }
 }
-function renderWarnings(panelId,cardsId){
-  var panel=document.getElementById(panelId), cards=document.getElementById(cardsId);
-  cards.innerHTML='';
-  var warns=[];
-  if(over50()) warns.push({type:'age',msg:'Patient age >50 — 2D Echocardiography and Pulmonary Function Tests are mandatory regardless of procedure.'});
-  if(curProc&&WARNINGS[curProc]) warns=warns.concat(WARNINGS[curProc]);
-  if(!warns.length){panel.classList.remove('visible');return;}
-  warns.forEach(function(w){
-    var d=document.createElement('div'); d.className='warn-card '+w.type;
-    d.innerHTML='<div class="warn-icon">'+(WARN_ICONS[w.type]||'ℹ')+'</div><div>'+w.msg+'</div>';
-    cards.appendChild(d);
-  });
-  panel.classList.add('visible');
-}
-function buildAll(){
-  saveInvState('std-body'); saveInvState('blood-body'); saveInvState('radio-body');
-  buildSection(STD,'std-body'); buildSection(BLOOD,'blood-body'); buildSection(RADIO,'radio-body');
-  buildClearances(); buildExtras();
-  var lbl=curProc?'📋 Procedure: '+PROC_LABELS[curProc]:'';
-  ['banner2','banner3'].forEach(function(id){var el=document.getElementById(id);el.textContent=lbl;el.style.display=lbl?'block':'none';});
-  renderWarnings('warn-panel-2','warn-cards-2');
-  renderWarnings('warn-panel-3','warn-cards-3');
-  renderWarnings('warn-panel-4','warn-cards-4');
-  document.getElementById('age-alert').style.display=over50()?'block':'none';
-}
+
+/* ═══ CLEARANCES ═════════════════════════════════════════════════════ */
 function buildClearances(){
   var body=document.getElementById('clr-body'); body.innerHTML='';
   var sug=document.getElementById('clr-sug');
-  if(curProc&&CLR_PROC[curProc]){
-    sug.style.display='block';
-    sug.innerHTML='<strong style="display:block;margin-bottom:4px">✓ Suggested clearances — '+PROC_LABELS[curProc]+':</strong>'+CLR_PROC[curProc].join('<br>');
-  } else sug.style.display='none';
+  if(curProc&&CLR_PROC[curProc]){sug.style.display='block';sug.innerHTML='<strong style="display:block;margin-bottom:4px">✓ Suggested clearances — '+PROC_LABELS[curProc]+':</strong>'+CLR_PROC[curProc].join('<br>');}
+  else sug.style.display='none';
   var optH=CLR_OPTS.map(function(o){return'<option>'+o+'</option>';}).join('');
   var stH=['— Status —','Obtained','Awaited','Requested','Not required'].map(function(o){return'<option>'+o+'</option>';}).join('');
   var prefill=curProc&&CLR_PROC[curProc]?CLR_PROC[curProc]:[];
@@ -934,31 +989,45 @@ function buildClearances(){
     if(pre)(function(r,v){setTimeout(function(){var s=r.querySelector('select');for(var j=0;j<s.options.length;j++){if(s.options[j].text===v){s.value=v;break;}}},60);})(row,pre);
   }
 }
+
+/* ═══ EXTRAS ═════════════════════════════════════════════════════════ */
 function buildExtras(){
   var body=document.getElementById('ext-body'); body.innerHTML='';
-  // Always-visible rows
-  EXT_ALWAYS.forEach(function(e){
-    var row=document.createElement('div'); row.className='ext-row';
-    row.setAttribute('data-ext-key','always');
-    row.innerHTML='<input type="checkbox" class="ext-chk"><div class="ext-lbl">'+e.lbl+'</div><input class="ext-inp" placeholder="'+e.ph+'">';
-    body.appendChild(row);
-  });
-  // Procedure-specific rows
-  if(curProc){
-    Object.keys(EXT_PROC).forEach(function(key){
-      var e=EXT_PROC[key];
-      var procs=e.procs?e.procs.split(','):[];
-      if(procs.indexOf(curProc)===-1) return;
-      var row=document.createElement('div'); row.className='ext-row';
-      row.setAttribute('data-ext-key',key);
-      row.innerHTML='<input type="checkbox" class="ext-chk"><div class="ext-lbl">'+e.lbl+'</div><input class="ext-inp" placeholder="'+e.ph+'">';
-      body.appendChild(row);
-    });
-  }
+  EXT_ALWAYS.forEach(function(e){var row=document.createElement('div');row.className='ext-row';row.innerHTML='<input type="checkbox" class="ext-chk"><div class="ext-lbl">'+e.lbl+'</div><input class="ext-inp" placeholder="'+e.ph+'">';body.appendChild(row);});
+  if(curProc){Object.keys(EXT_PROC).forEach(function(key){var e=EXT_PROC[key];if((e.procs||'').split(',').indexOf(curProc)===-1) return;var row=document.createElement('div');row.className='ext-row';row.innerHTML='<input type="checkbox" class="ext-chk"><div class="ext-lbl">'+e.lbl+'</div><input class="ext-inp" placeholder="'+e.ph+'">';body.appendChild(row);});}
   var db=document.getElementById('drug-box');
   if(curProc&&DRUGS[curProc]){db.style.display='block';db.innerHTML='<strong>💊 Drug protocol — '+PROC_LABELS[curProc]+'</strong>'+DRUGS[curProc];}
   else db.style.display='none';
 }
+
+/* ═══ WARNINGS ═══════════════════════════════════════════════════════ */
+function renderWarnings(panelId,cardsId){
+  var panel=document.getElementById(panelId),cards=document.getElementById(cardsId);
+  cards.innerHTML='';
+  var warns=[];
+  if(over50()) warns.push({type:'age',msg:'Patient age >50 — 2D Echocardiography and Pulmonary Function Tests are mandatory regardless of procedure.'});
+  if(curProc&&WARNINGS[curProc]) warns=warns.concat(WARNINGS[curProc]);
+  if(!warns.length){panel.classList.remove('visible');return;}
+  warns.forEach(function(w){var d=document.createElement('div');d.className='warn-card '+w.type;d.innerHTML='<div class="warn-icon">'+(WARN_ICONS[w.type]||'ℹ')+'</div><div>'+w.msg+'</div>';cards.appendChild(d);});
+  panel.classList.add('visible');
+}
+
+/* ═══ BUILD ALL ══════════════════════════════════════════════════════ */
+function buildAll(){
+  saveInvState('radio-body'); saveInvState('std-body'); saveInvState('blood-body');
+  buildRadioSection(RADIO,'radio-body');
+  buildFlatSection(STD,'std-body',true);
+  buildFlatSection(BLOOD,'blood-body',false);
+  buildClearances(); buildExtras();
+  var lbl=curProc?'📋 Procedure: '+PROC_LABELS[curProc]:'';
+  ['banner2','banner3'].forEach(function(id){var el=document.getElementById(id);el.textContent=lbl;el.style.display=lbl?'block':'none';});
+  renderWarnings('warn-panel-2','warn-cards-2');
+  renderWarnings('warn-panel-3','warn-cards-3');
+  renderWarnings('warn-panel-4','warn-cards-4');
+  document.getElementById('age-alert').style.display=over50()?'block':'none';
+}
+
+/* ═══ PAGE NAV ═══════════════════════════════════════════════════════ */
 function showPg(n){
   document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('active');});
   document.getElementById('pg'+n).classList.add('active');
@@ -970,56 +1039,67 @@ function buildSummary(){
   var asa=(document.querySelector('input[name="asa"]:checked')||{}).value||'—';
   var age=g('f-age');
   var ageNote=parseInt(age,10)>50?' <em style="color:var(--amber);font-size:11px">(Echo + PFT mandatory)</em>':'';
-  var rows=[
-    ['Patient',g('f-name')],
-    ['UHID',g('f-uhid')],
-    ['Mobile',g('f-mob1')+(g('f-mob2')!=='—'?' / '+g('f-mob2'):'')],
-    ['Age / Sex',age+'y'+ageNote+' / '+g('f-sex')],
-    ['OPD Room',g('f-room')],['ASA Grade',asa],
-    ['Diagnosis',g('f-diag')],['Planned procedure',curProc?PROC_LABELS[curProc]:'—'],
-    ['Co-morbidities',g('f-comorbid')],['Consultant email',g('f-email')]
-  ];
+  var rows=[['Patient',g('f-name')],['UHID',g('f-uhid')],['Mobile',g('f-mob1')+(g('f-mob2')!=='—'?' / '+g('f-mob2'):'')],['Age / Sex',age+'y'+ageNote+' / '+g('f-sex')],['OPD Room',g('f-room')],['ASA Grade',asa],['Diagnosis',g('f-diag')],['Planned procedure',curProc?PROC_LABELS[curProc]:'—'],['Co-morbidities',g('f-comorbid')],['Consultant email',g('f-email')]];
   document.getElementById('sum-tbl').innerHTML=rows.map(function(r){return'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('');
 }
-function collectPayload(ref){
+
+/* ═══ COLLECT PAYLOAD ════════════════════════════════════════════════ */
+async function collectPayload(ref){
   var g=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
   var mdtAttend=Array.from(document.querySelectorAll('#mdt-attend-wrap input[type=checkbox]:checked')).map(function(c){return c.parentElement.textContent.trim();});
   var asa=(document.querySelector('input[name="asa"]:checked')||{}).value||'';
-  var investigations=[];
   var stdDate=(document.getElementById('std-common-date')||{}).value||'';
   var stdIds=STD.map(function(i){return i.id;});
+  var investigations=[];
   STD.concat(BLOOD).concat(RADIO).forEach(function(item){
-    var row=document.querySelector('[data-id="'+item.id+'"]');
+    var el=document.querySelector('[data-id="'+item.id+'"]');
     var done=false,value='',date='';
-    if(row){var chk=row.querySelector('input[type=checkbox]');done=chk?chk.checked:false;var val=row.querySelector('.inv-val');value=val?val.value:'';var dt=row.querySelector('.inv-date');date=dt?dt.value:'';}
+    if(el){var chk=el.querySelector('input[type=checkbox]');done=chk?chk.checked:false;var val=el.querySelector('.inv-val');value=val?val.value:'';var dt=el.querySelector('.inv-date');date=dt?dt.value:'';}
     if(stdIds.indexOf(item.id)!==-1) date=stdDate;
-    investigations.push({id:item.id,name:item.name.replace(/&amp;/g,'&'),done:done,value:value,date:date,importance:getImportance(item)});
+    investigations.push({id:item.id,name:item.name,done:done,value:value,date:date,importance:getImportance(item)});
   });
   var clearances=[];
-  document.querySelectorAll('#clr-body .clr-row').forEach(function(row){
-    var sels=row.querySelectorAll('select'),inp=row.querySelector('.ci');
-    clearances.push({specialty:sels[0]?sels[0].value:'',status:sels[1]?sels[1].value:'',notes:inp?inp.value:''});
-  });
+  document.querySelectorAll('#clr-body .clr-row').forEach(function(row){var sels=row.querySelectorAll('select'),inp=row.querySelector('.ci');clearances.push({specialty:sels[0]?sels[0].value:'',status:sels[1]?sels[1].value:'',notes:inp?inp.value:''});});
   var extras=[];
-  document.querySelectorAll('#ext-body .ext-row').forEach(function(row){
-    var chk=row.querySelector('.ext-chk'),inp=row.querySelector('.ext-inp');
-    var lbl=row.querySelector('.ext-lbl');
-    extras.push({label:lbl?lbl.textContent:'',done:chk?chk.checked:false,note:inp?inp.value:''});
-  });
-  return{ref:ref,name:g('f-name'),uhid:g('f-uhid'),mobile1:g('f-mob1'),mobile2:g('f-mob2'),age:g('f-age'),sex:g('f-sex'),room:g('f-room'),asa:asa,diagnosis:g('f-diag'),plan:g('f-plan'),comorbid:g('f-comorbid'),consultantEmail:g('f-email'),procedure:curProc?PROC_LABELS[curProc]:'',completedBy:g('so-name'),designation:g('so-desig'),signoffDate:g('so-date'),notes:g('so-notes'),
-    radioConference:{date:g('rc-date'),radiologist:g('rc-radiologist'),findings:g('rc-findings'),modality:g('rc-modality'),outcome:g('rc-outcome'),notes:g('rc-notes')},
-    mdt:{date:g('mdt-date'),chair:g('mdt-chair'),specialties:g('mdt-specialties'),presenter:g('mdt-presenter'),decision:g('mdt-decision'),outcome:g('mdt-outcome'),ref:g('mdt-ref'),notes:g('mdt-notes'),attendance:mdtAttend},
-    investigations:investigations,clearances:clearances,extras:extras};
+  document.querySelectorAll('#ext-body .ext-row').forEach(function(row){var chk=row.querySelector('.ext-chk'),inp=row.querySelector('.ext-inp'),lbl=row.querySelector('.ext-lbl');extras.push({label:lbl?lbl.textContent:'',done:chk?chk.checked:false,note:inp?inp.value:''});});
+
+  /* ── Encode per-investigation images ── */
+  var invImages=[];
+  for(var invId in INV_IMGS){
+    var f=INV_IMGS[invId];
+    try{
+      var b64=await fileToB64(f);
+      invImages.push({invId:invId,fileName:f.name,mimeType:f.type,data:b64});
+    }catch(e){ console.warn('Failed to encode inv image for',invId,e); }
+  }
+
+  /* ── Encode clinical photos ── */
+  var clinPhotos=[];
+  for(var i=0;i<BULK_FILES.clin.length;i++){
+    var f=BULK_FILES.clin[i];
+    try{
+      var b64=await fileToB64(f);
+      clinPhotos.push({fileName:f.name,mimeType:f.type,data:b64});
+    }catch(e){ console.warn('Failed to encode clin photo',i,e); }
+  }
+
+  /* ── Encode radiology bulk images ── */
+  var radioImages=[];
+  for(var i=0;i<BULK_FILES.radio.length;i++){
+    var f=BULK_FILES.radio[i];
+    try{
+      var b64=await fileToB64(f);
+      radioImages.push({fileName:f.name,mimeType:f.type,data:b64});
+    }catch(e){ console.warn('Failed to encode radio image',i,e); }
+  }
+
+  return{ref:ref,name:g('f-name'),uhid:g('f-uhid'),mobile1:g('f-mob1'),mobile2:g('f-mob2'),age:g('f-age'),sex:g('f-sex'),room:g('f-room'),asa:asa,diagnosis:g('f-diag'),plan:g('f-plan'),comorbid:g('f-comorbid'),consultantEmail:g('f-email'),procedure:curProc?PROC_LABELS[curProc]:'',completedBy:g('so-name'),designation:g('so-desig'),signoffDate:g('so-date'),notes:g('so-notes'),radioConference:{date:g('rc-date'),radiologist:g('rc-radiologist'),findings:g('rc-findings'),modality:g('rc-modality'),outcome:g('rc-outcome'),notes:g('rc-notes')},mdt:{date:g('mdt-date'),chair:g('mdt-chair'),specialties:g('mdt-specialties'),presenter:g('mdt-presenter'),decision:g('mdt-decision'),outcome:g('mdt-outcome'),ref:g('mdt-ref'),notes:g('mdt-notes'),attendance:mdtAttend},investigations:investigations,clearances:clearances,extras:extras,invImages:invImages,clinPhotos:clinPhotos,radioImages:radioImages};
 }
+
+/* ═══ VALIDATE ═══════════════════════════════════════════════════════ */
 function validateFields(ids){
   var ok=true;
-  ids.forEach(function(id){
-    var el=document.getElementById(id),err=document.getElementById('err-'+id);
-    var valid=el&&el.value.trim()!=='';
-    if(el) el.classList.toggle('err',!valid);
-    if(err) err.style.display=valid?'none':'block';
-    if(!valid) ok=false;
-  });
+  ids.forEach(function(id){var el=document.getElementById(id),err=document.getElementById('err-'+id);var valid=el&&el.value.trim()!=='';if(el) el.classList.toggle('err',!valid);if(err) err.style.display=valid?'none':'block';if(!valid) ok=false;});
   return ok;
 }
 
@@ -1028,8 +1108,7 @@ document.querySelectorAll('.proc-btn').forEach(function(btn){
   btn.addEventListener('click',function(){
     document.querySelectorAll('.proc-btn').forEach(function(b){b.classList.remove('active');});
     btn.classList.add('active'); curProc=btn.getAttribute('data-proc');
-    document.getElementById('proc-err').style.display='none';
-    buildAll();
+    document.getElementById('proc-err').style.display='none'; buildAll();
   });
 });
 document.getElementById('f-age').addEventListener('input',function(){this.classList.remove('err');buildAll();});
@@ -1045,37 +1124,31 @@ document.getElementById('btn3').addEventListener('click',function(){showPg(4);})
 document.getElementById('btn4b').addEventListener('click',function(){showPg(3);});
 document.getElementById('btn4').addEventListener('click',function(){showPg(5);});
 document.getElementById('btn5b').addEventListener('click',function(){showPg(4);});
-document.getElementById('btn5').addEventListener('click',function(){
+document.getElementById('btn5').addEventListener('click',async function(){
   if(!validateFields(['so-name','so-date'])) return;
   var btn=document.getElementById('btn5');
   var ref='AIIMS-'+new Date().getFullYear()+'-'+Math.floor(Math.random()*90000+10000);
-  var payload=collectPayload(ref);
-  btn.disabled=true; btn.innerHTML='<span class="spinner"></span> Submitting...';
-fetch(APPS_SCRIPT_URL, {
-  method: 'POST',
-  mode: 'no-cors',
-  body: JSON.stringify(payload)
-})
-.then(function() {
-  document.getElementById('ref-num').textContent = 'Reference: ' + ref;
-  showPg(6);
-})
-.catch(function(err) {
-  alert('Submission failed.\n\nError: ' + err.message);
-})
-.finally(function() {
-  btn.disabled = false;
-  btn.innerHTML = 'Submit checklist';
-});
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span> Encoding images…';
+  try{
+    var payload=await collectPayload(ref);
+    var totalImgs=(payload.invImages||[]).length+(payload.clinPhotos||[]).length+(payload.radioImages||[]).length;
+    btn.innerHTML='<span class="spinner"></span> Uploading'+(totalImgs?' ('+totalImgs+' file'+(totalImgs>1?'s':'')+')':'')+'…';
+    await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(payload)});
+    document.getElementById('ref-num').textContent='Reference: '+ref;
+    showPg(6);
+  }catch(err){
+    alert('Submission failed.\n\nError: '+err.message);
+  }finally{
+    btn.disabled=false; btn.innerHTML='Submit checklist';
+  }
 });
 document.getElementById('btnReset').addEventListener('click',function(){
-  curProc=null;INV_STATE={};
+  curProc=null;INV_STATE={};INV_IMGS={};
   document.querySelectorAll('.proc-btn').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('input:not([type=radio]):not([type=checkbox])').forEach(function(i){i.value='';i.classList.remove('err');});
   document.querySelectorAll('select').forEach(function(s){s.selectedIndex=0;});
   document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(function(c){c.checked=false;});
   document.querySelectorAll('.field-err').forEach(function(e){e.style.display='none';});
-  // reset dropdowns
   selectedComorbids=[];selectedConsultant=null;
   updateComorbidTags();
   document.getElementById('consultant-trigger').textContent='Select consultant…';
@@ -1088,106 +1161,51 @@ document.querySelectorAll('.fi').forEach(function(el){
   el.addEventListener('input',function(){this.classList.remove('err');var err=document.getElementById('err-'+this.id);if(err)err.style.display='none';});
 });
 
-/* ═══ COMORBIDITY MULTI-SELECT ═══════════════════════════════════════ */
-var COMORBID_LIST=[
-  'Type 2 Diabetes Mellitus (T2DM)','Hypertension (HTN)','Coronary Artery Disease (CAD)',
-  'Chronic Kidney Disease (CKD)','Hypothyroidism','Hyperthyroidism','COPD',
-  'Bronchial Asthma','Atrial Fibrillation','Heart Failure','Obesity (BMI >30)',
-  'Anaemia','Liver Cirrhosis','Deep Vein Thrombosis (DVT)','Peripheral Artery Disease (PAD)',
-  'Stroke / TIA','Epilepsy','Parkinson\'s Disease','Rheumatoid Arthritis',
-  'Steroid-dependent','Anticoagulation therapy','Prior Malignancy','HIV Positive',
-  'Hepatitis B / C','Nil significant comorbidity'
-];
+/* ═══ COMORBIDITY ════════════════════════════════════════════════════ */
+var COMORBID_LIST=['Type 2 Diabetes Mellitus (T2DM)','Hypertension (HTN)','Coronary Artery Disease (CAD)','Chronic Kidney Disease (CKD)','Hypothyroidism','Hyperthyroidism','COPD','Bronchial Asthma','Atrial Fibrillation','Heart Failure','Obesity (BMI >30)','Anaemia','Liver Cirrhosis','Deep Vein Thrombosis (DVT)','Peripheral Artery Disease (PAD)','Stroke / TIA','Epilepsy','Parkinson\'s Disease','Rheumatoid Arthritis','Steroid-dependent','Anticoagulation therapy','Prior Malignancy','HIV Positive','Hepatitis B / C','Nil significant comorbidity'];
 var selectedComorbids=[];
-
 function renderComorbidOpts(filter){
-  var container=document.getElementById('comorbid-opts'); container.innerHTML='';
+  var container=document.getElementById('comorbid-opts');container.innerHTML='';
   var q=(filter||'').toLowerCase();
   COMORBID_LIST.filter(function(o){return o.toLowerCase().indexOf(q)!==-1;}).forEach(function(opt){
-    var d=document.createElement('div');
-    d.className='dd-opt'+(selectedComorbids.indexOf(opt)!==-1?' selected':'');
-    d.textContent=opt;
-    d.addEventListener('click',function(e){e.stopPropagation();toggleComorbid(opt);});
-    container.appendChild(d);
+    var d=document.createElement('div');d.className='dd-opt'+(selectedComorbids.indexOf(opt)!==-1?' selected':'');d.textContent=opt;
+    d.addEventListener('click',function(e){e.stopPropagation();toggleComorbid(opt);});container.appendChild(d);
   });
-  var addEl=document.createElement('div');
-  addEl.className='dd-opt add-new'; addEl.textContent='Add new co-morbidity…';
-  addEl.addEventListener('click',function(e){
-    e.stopPropagation(); closeAllDropdowns();
-    document.getElementById('comorbid-add-form').classList.add('visible');
-    document.getElementById('comorbid-new-val').focus();
-  });
+  var addEl=document.createElement('div');addEl.className='dd-opt add-new';addEl.textContent='Add new co-morbidity…';
+  addEl.addEventListener('click',function(e){e.stopPropagation();closeAllDropdowns();document.getElementById('comorbid-add-form').classList.add('visible');document.getElementById('comorbid-new-val').focus();});
   container.appendChild(addEl);
 }
-
-function toggleComorbid(opt){
-  var idx=selectedComorbids.indexOf(opt);
-  if(idx===-1) selectedComorbids.push(opt); else selectedComorbids.splice(idx,1);
-  updateComorbidTags();
-  renderComorbidOpts(document.getElementById('comorbid-search').value);
-}
-
+function toggleComorbid(opt){var idx=selectedComorbids.indexOf(opt);if(idx===-1)selectedComorbids.push(opt);else selectedComorbids.splice(idx,1);updateComorbidTags();renderComorbidOpts(document.getElementById('comorbid-search').value);}
 function updateComorbidTags(){
-  var wrap=document.getElementById('comorbid-tags'); wrap.innerHTML='';
-  selectedComorbids.forEach(function(c){
-    var pill=document.createElement('span'); pill.className='tag-pill';
-    pill.innerHTML=c+'<button type="button" title="Remove">×</button>';
-    pill.querySelector('button').addEventListener('click',function(){toggleComorbid(c);});
-    wrap.appendChild(pill);
-  });
+  var wrap=document.getElementById('comorbid-tags');wrap.innerHTML='';
+  selectedComorbids.forEach(function(c){var pill=document.createElement('span');pill.className='tag-pill';pill.innerHTML=c+'<button type="button" title="Remove">×</button>';pill.querySelector('button').addEventListener('click',function(){toggleComorbid(c);});wrap.appendChild(pill);});
   document.getElementById('f-comorbid').value=selectedComorbids.join(', ');
-  document.getElementById('comorbid-trigger').textContent=
-    selectedComorbids.length?selectedComorbids.length+' selected':'Select co-morbidities…';
+  document.getElementById('comorbid-trigger').textContent=selectedComorbids.length?selectedComorbids.length+' selected':'Select co-morbidities…';
 }
-
-document.getElementById('comorbid-trigger').addEventListener('click',function(e){
-  e.stopPropagation();
-  var menu=document.getElementById('comorbid-menu');
-  var isOpen=menu.classList.contains('open');
-  closeAllDropdowns();
-  if(!isOpen){menu.classList.add('open');this.classList.add('open');renderComorbidOpts('');}
-});
+document.getElementById('comorbid-trigger').addEventListener('click',function(e){e.stopPropagation();var menu=document.getElementById('comorbid-menu');var isOpen=menu.classList.contains('open');closeAllDropdowns();if(!isOpen){menu.classList.add('open');this.classList.add('open');renderComorbidOpts('');}});
 document.getElementById('comorbid-search').addEventListener('input',function(){renderComorbidOpts(this.value);});
-document.getElementById('comorbid-add-confirm').addEventListener('click',function(){
-  var val=document.getElementById('comorbid-new-val').value.trim(); if(!val) return;
-  if(COMORBID_LIST.indexOf(val)===-1) COMORBID_LIST.push(val);
-  if(selectedComorbids.indexOf(val)===-1) selectedComorbids.push(val);
-  updateComorbidTags();
-  document.getElementById('comorbid-new-val').value='';
-  document.getElementById('comorbid-add-form').classList.remove('visible');
-});
-document.getElementById('comorbid-add-cancel').addEventListener('click',function(){
-  document.getElementById('comorbid-new-val').value='';
-  document.getElementById('comorbid-add-form').classList.remove('visible');
-});
+document.getElementById('comorbid-add-confirm').addEventListener('click',function(){var val=document.getElementById('comorbid-new-val').value.trim();if(!val)return;if(COMORBID_LIST.indexOf(val)===-1)COMORBID_LIST.push(val);if(selectedComorbids.indexOf(val)===-1)selectedComorbids.push(val);updateComorbidTags();document.getElementById('comorbid-new-val').value='';document.getElementById('comorbid-add-form').classList.remove('visible');});
+document.getElementById('comorbid-add-cancel').addEventListener('click',function(){document.getElementById('comorbid-new-val').value='';document.getElementById('comorbid-add-form').classList.remove('visible');});
 
-/* ═══ CONSULTANT SINGLE-SELECT ═══════════════════════════════════════ */
+/* ═══ CONSULTANTS (updated list) ════════════════════════════════════ */
 var CONSULTANT_LIST=[
-  {name:'Prof. A.K. Srivastava', email:'aksrivastava@aiims.edu'},
-  {name:'Dr. Rakesh Sharma',     email:'rsharma@aiims.edu'},
-  {name:'Dr. Priya Mehta',       email:'pmehta@aiims.edu'},
-  {name:'Dr. Sunil Gupta',       email:'sgupta@aiims.edu'},
-  {name:'Dr. Anita Verma',       email:'averma@aiims.edu'},
+  {name:'Prof Anita Dhar',       email:'dranitadharbhan@gmail.com'},
+  {name:'Prof Kamal Kataria',    email:'kamal.kataria@aiims.edu'},
+  {name:'Dr Uttam Kumar Thakur', email:'ukt005@gmail.com'},
+  {name:'Dr Nelson T',           email:'nelson.mbbs@gmail.com'},
+  {name:'Dr Vishnukant Pandey',  email:'drvkant@gmail.com'},
 ];
 var selectedConsultant=null;
-
 function renderConsultantOpts(filter){
-  var container=document.getElementById('consultant-opts'); container.innerHTML='';
+  var container=document.getElementById('consultant-opts');container.innerHTML='';
   var q=(filter||'').toLowerCase();
-  CONSULTANT_LIST.filter(function(c){
-    return c.name.toLowerCase().indexOf(q)!==-1||c.email.toLowerCase().indexOf(q)!==-1;
-  }).forEach(function(c,idx){
-    var d=document.createElement('div');
-    var isSel=selectedConsultant&&selectedConsultant.email===c.email;
-    d.className='dd-opt'+(isSel?' selected':'');
-    d.style.cssText='display:flex;align-items:center;gap:6px;flex-wrap:nowrap';
-    // name+email block
-    var info=document.createElement('span');
-    info.style.cssText='flex:1;min-width:0';
+  CONSULTANT_LIST.filter(function(c){return c.name.toLowerCase().indexOf(q)!==-1||c.email.toLowerCase().indexOf(q)!==-1;}).forEach(function(c){
+    var d=document.createElement('div');var isSel=selectedConsultant&&selectedConsultant.email===c.email;
+    d.className='dd-opt'+(isSel?' selected':'');d.style.cssText='display:flex;align-items:center;gap:6px;flex-wrap:nowrap';
+    var info=document.createElement('span');info.style.cssText='flex:1;min-width:0';
     info.innerHTML='<span style="font-weight:600">'+c.name+'</span> <span style="font-size:10px;color:var(--slate-400)">'+c.email+'</span>';
     info.addEventListener('click',function(e){
-      e.stopPropagation();
-      selectedConsultant=c;
+      e.stopPropagation();selectedConsultant=c;
       document.getElementById('f-email').value=c.email;
       document.getElementById('consultant-trigger').textContent=c.name;
       document.getElementById('consultant-email-display').textContent='📧 '+c.email;
@@ -1195,120 +1213,47 @@ function renderConsultantOpts(filter){
       document.getElementById('err-f-email').style.display='none';
       closeAllDropdowns();
     });
-    // delete button — only for user-added (idx >= default count) OR allow all
-    var delBtn=document.createElement('button');
-    delBtn.type='button'; delBtn.className='dd-opt-del'; delBtn.title='Remove consultant';
-    delBtn.textContent='✕';
+    var delBtn=document.createElement('button');delBtn.type='button';delBtn.className='dd-opt-del';delBtn.title='Remove';delBtn.textContent='✕';
     delBtn.addEventListener('click',function(e){
-      e.stopPropagation();
-      // find real index in CONSULTANT_LIST
-      var realIdx=CONSULTANT_LIST.findIndex(function(x){return x.email===c.email;});
-      if(realIdx!==-1) CONSULTANT_LIST.splice(realIdx,1);
-      if(selectedConsultant&&selectedConsultant.email===c.email){
-        selectedConsultant=null;
-        document.getElementById('f-email').value='';
-        document.getElementById('consultant-trigger').textContent='Select consultant…';
-        document.getElementById('consultant-email-display').textContent='';
-      }
+      e.stopPropagation();var ri=CONSULTANT_LIST.findIndex(function(x){return x.email===c.email;});
+      if(ri!==-1)CONSULTANT_LIST.splice(ri,1);
+      if(selectedConsultant&&selectedConsultant.email===c.email){selectedConsultant=null;document.getElementById('f-email').value='';document.getElementById('consultant-trigger').textContent='Select consultant…';document.getElementById('consultant-email-display').textContent='';}
       renderConsultantOpts(document.getElementById('consultant-search').value);
     });
-    d.appendChild(info); d.appendChild(delBtn);
-    container.appendChild(d);
+    d.appendChild(info);d.appendChild(delBtn);container.appendChild(d);
   });
-  var addEl=document.createElement('div');
-  addEl.className='dd-opt add-new'; addEl.textContent='Add new consultant…';
-  addEl.addEventListener('click',function(e){
-    e.stopPropagation(); closeAllDropdowns();
-    document.getElementById('consultant-add-form').classList.add('visible');
-    document.getElementById('consultant-new-name').focus();
-  });
+  var addEl=document.createElement('div');addEl.className='dd-opt add-new';addEl.textContent='Add new consultant…';
+  addEl.addEventListener('click',function(e){e.stopPropagation();closeAllDropdowns();document.getElementById('consultant-add-form').classList.add('visible');document.getElementById('consultant-new-name').focus();});
   container.appendChild(addEl);
 }
-
-document.getElementById('consultant-trigger').addEventListener('click',function(e){
-  e.stopPropagation();
-  var menu=document.getElementById('consultant-menu');
-  var isOpen=menu.classList.contains('open');
-  closeAllDropdowns();
-  if(!isOpen){menu.classList.add('open');this.classList.add('open');renderConsultantOpts('');}
-});
+document.getElementById('consultant-trigger').addEventListener('click',function(e){e.stopPropagation();var menu=document.getElementById('consultant-menu');var isOpen=menu.classList.contains('open');closeAllDropdowns();if(!isOpen){menu.classList.add('open');this.classList.add('open');renderConsultantOpts('');}});
 document.getElementById('consultant-search').addEventListener('input',function(){renderConsultantOpts(this.value);});
 document.getElementById('consultant-add-confirm').addEventListener('click',function(){
-  var name=document.getElementById('consultant-new-name').value.trim();
-  var email=document.getElementById('consultant-new-email').value.trim();
-  if(!name||!email) return;
-  var entry={name:name,email:email};
-  CONSULTANT_LIST.push(entry); selectedConsultant=entry;
-  document.getElementById('f-email').value=email;
-  document.getElementById('consultant-trigger').textContent=name;
+  var name=document.getElementById('consultant-new-name').value.trim();var email=document.getElementById('consultant-new-email').value.trim();
+  if(!name||!email)return;var entry={name:name,email:email};CONSULTANT_LIST.push(entry);selectedConsultant=entry;
+  document.getElementById('f-email').value=email;document.getElementById('consultant-trigger').textContent=name;
   document.getElementById('consultant-email-display').textContent='📧 '+email;
   document.getElementById('err-f-email').style.display='none';
-  document.getElementById('consultant-new-name').value='';
-  document.getElementById('consultant-new-email').value='';
+  document.getElementById('consultant-new-name').value='';document.getElementById('consultant-new-email').value='';
   document.getElementById('consultant-add-form').classList.remove('visible');
 });
-document.getElementById('consultant-add-cancel').addEventListener('click',function(){
-  document.getElementById('consultant-new-name').value='';
-  document.getElementById('consultant-new-email').value='';
-  document.getElementById('consultant-add-form').classList.remove('visible');
-});
-
-function closeAllDropdowns(){
-  document.querySelectorAll('.dd-menu').forEach(function(m){m.classList.remove('open');});
-  document.querySelectorAll('.dd-trigger').forEach(function(t){t.classList.remove('open');});
-}
+document.getElementById('consultant-add-cancel').addEventListener('click',function(){document.getElementById('consultant-new-name').value='';document.getElementById('consultant-new-email').value='';document.getElementById('consultant-add-form').classList.remove('visible');});
+function closeAllDropdowns(){document.querySelectorAll('.dd-menu').forEach(function(m){m.classList.remove('open');});document.querySelectorAll('.dd-trigger').forEach(function(t){t.classList.remove('open');});}
 document.addEventListener('click',function(){closeAllDropdowns();});
 
-/* ═══ IMAGE UPLOAD HELPER ════════════════════════════════════════════ */
-function initUpload(zoneId,inputId,gridId,countId,maxMB){
-  var zone=document.getElementById(zoneId);
-  var input=document.getElementById(inputId);
-  var grid=document.getElementById(gridId);
-  var countEl=document.getElementById(countId);
-  var files=[];
-
-  function refresh(){
-    grid.innerHTML='';
-    files.forEach(function(f,i){
-      var thumb=document.createElement('div'); thumb.className='upload-thumb';
-      var isPdf=f.type==='application/pdf';
-      var delBtn='<button class="thumb-del" data-idx="'+i+'" title="Remove">✕</button>';
-      if(isPdf){
-        thumb.innerHTML='<div style="height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;background:#f1f5f9">📄</div><div class="thumb-label">'+f.name+'</div>'+delBtn;
-      } else {
-        var url=URL.createObjectURL(f);
-        thumb.innerHTML='<img src="'+url+'" alt="'+f.name+'"><div class="thumb-label">'+f.name+'</div>'+delBtn;
-      }
-      grid.appendChild(thumb);
-    });
-    grid.querySelectorAll('.thumb-del').forEach(function(btn){
-      btn.addEventListener('click',function(e){
-        e.stopPropagation();
-        files.splice(parseInt(this.getAttribute('data-idx'),10),1);
-        refresh();
-      });
-    });
-    countEl.textContent=files.length?files.length+' file'+(files.length>1?'s':'')+' attached':'';
-  }
-
-  function addFiles(newFiles){
-    Array.from(newFiles).forEach(function(f){
-      if(f.size>maxMB*1024*1024){alert('"'+f.name+'" exceeds the '+maxMB+' MB limit and was skipped.');return;}
-      files.push(f);
-    });
-    refresh();
-  }
-
+/* ═══ BULK IMAGE UPLOAD HELPERS ══════════════════════════════════════ */
+function initUpload(zoneId,inputId,gridId,countId,maxMB,fileStore){
+  var zone=document.getElementById(zoneId),input=document.getElementById(inputId),grid=document.getElementById(gridId),countEl=document.getElementById(countId);
+  /* fileStore is a reference to BULK_FILES.clin or BULK_FILES.radio */
+  function refresh(){grid.innerHTML='';fileStore.forEach(function(f,i){var thumb=document.createElement('div');thumb.className='upload-thumb';var isPdf=f.type==='application/pdf';var delBtn='<button class="thumb-del" data-idx="'+i+'" title="Remove">✕</button>';if(isPdf){thumb.innerHTML='<div style="height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;background:#f1f5f9">📄</div><div class="thumb-label">'+f.name+'</div>'+delBtn;}else{var url=URL.createObjectURL(f);thumb.innerHTML='<img src="'+url+'" alt="'+f.name+'"><div class="thumb-label">'+f.name+'</div>'+delBtn;}grid.appendChild(thumb);});grid.querySelectorAll('.thumb-del').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();fileStore.splice(parseInt(this.getAttribute('data-idx'),10),1);refresh();});});countEl.textContent=fileStore.length?fileStore.length+' file'+(fileStore.length>1?'s':'')+' attached':'';}
+  function addFiles(newFiles){Array.from(newFiles).forEach(function(f){if(f.size>maxMB*1024*1024){alert('"'+f.name+'" exceeds the '+maxMB+' MB limit and was skipped.');return;}fileStore.push(f);});refresh();}
   input.addEventListener('change',function(){addFiles(this.files);this.value='';});
   zone.addEventListener('dragover',function(e){e.preventDefault();zone.classList.add('drag-over');});
   zone.addEventListener('dragleave',function(){zone.classList.remove('drag-over');});
-  zone.addEventListener('drop',function(e){
-    e.preventDefault();zone.classList.remove('drag-over');addFiles(e.dataTransfer.files);
-  });
+  zone.addEventListener('drop',function(e){e.preventDefault();zone.classList.remove('drag-over');addFiles(e.dataTransfer.files);});
 }
-
-initUpload('clin-photo-zone','clin-photo-input','clin-photo-grid','clin-photo-count',10);
-initUpload('radio-img-zone','radio-img-input','radio-img-grid','radio-img-count',20);
+initUpload('clin-photo-zone','clin-photo-input','clin-photo-grid','clin-photo-count',10,BULK_FILES.clin);
+initUpload('radio-img-zone','radio-img-input','radio-img-grid','radio-img-count',20,BULK_FILES.radio);
 
 buildAll();
 })();
